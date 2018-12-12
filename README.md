@@ -35,7 +35,6 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-
 |birth_year|integer| |
 |birth_month|integer| |
 |birth_day|integer| |
