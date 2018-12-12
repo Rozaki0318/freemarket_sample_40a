@@ -35,11 +35,7 @@
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
 |first_name_kana|string|null: false|
-|postal_code|string|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|street_number|string|null: false|
-|building_name|string| |
+
 |birth_year|integer| |
 |birth_month|integer| |
 |birth_day|integer| |
@@ -55,13 +51,14 @@
 - has_many :orders
 - has_many :comments
 - has_one :credit_card
+- has_one :address
 
 
-## imagesテーブル
+## item_imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|url|string|null: false|
+|image|string|null: false|
 |item_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -73,7 +70,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|path|string| |
+|depth|string| |
 |size_pulldown|integer|null: false|
 
 ### Association
@@ -127,3 +124,18 @@
 - belongs_to :brand
 - belongs_to :user
 - has_one :order
+
+
+## addressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|postal_code|string|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|street_number|string|null: false|
+|building_name|string| |
+|user_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
