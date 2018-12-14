@@ -1,0 +1,48 @@
+.top-main-visual {
+  .slider {
+    margin: 0 auto;
+    .box1{
+      @include visual-size("http://www.mercari.com/jp/assets/img/common/jp/top/top-banner-kusanagi-xmas.jpg");
+      background-size: cover;
+    }
+    .box2 {
+      background-size: cover;
+      @include visual-size("http://www.mercari.com/jp/assets/img/common/jp/top/main_bg_pc.jpg");
+      display: inline-block;
+      .top-main-visual {
+        width: 860px;
+        @include clearfix();
+        margin: 0 auto;
+        &__content {
+          height: 390px;
+          width: 420px;
+          float:left;
+          h2 {
+            font-size: 52px;
+            color: $black;
+            line-height: 1.2;
+          }
+          p {
+            line-height: 1.7;
+            font-size: 18px;
+          }
+          .appicon {
+            display: inline-block;
+          }
+        }
+        &__image {
+          float: left;
+        }
+      }
+    }
+    .box3 {
+      @include visual-size("http://www.mercari.com/jp/assets/img/common/jp/top/top-banner-welcome.png");
+      background-position: center;
+    }
+    .box4 {
+      @include visual-size("http://www.mercari.com/jp/assets/img/common/jp/top/top-banner-new-register.png");
+      background-size: cover;
+      background-position: center center;
+    }
+  }
+}

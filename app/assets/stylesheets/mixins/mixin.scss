@@ -1,0 +1,35 @@
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin fadeout() {
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 46px;
+    right: 0;
+    width: 50%;
+    height: 1.5em;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
+    background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+  }
+}
+
+@mixin visual-size($url) {
+  width: 100%;
+  height: 390px;
+  background-image: url($url);
+}
+
+@mixin link($color) {
+  color: $color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
