@@ -27,6 +27,8 @@
     }
   }
 }
+
+//商品情報
 .item-box-container {
   box-sizing: border-box;
   width: 700px;
@@ -168,14 +170,14 @@
     }
     .item-button-left {
       float: left;
-      .like {
+      .icon-like {
         @include btn();
         .fa-heart {
           line-height: 1;
           color: $icon;
         }
       }
-      .report {
+      .item-report {
         @include btn();
         margin-left: 16px;
       }
@@ -190,9 +192,113 @@
       }
     }
   }
-
-
 }
+
+//コメントゾーン
+.item-detail-message {
+  width: 700px;
+  margin: 8px auto;
+  .message-container {
+    background-color: $white;
+    .message-content {
+      padding: 24px;
+      .message-box {
+        list-style: none;
+        display: block;
+        margin: 0;
+        .comments-group {
+          @include clearfix();
+          margin: 1.5em 0 0;
+          position: relative;
+          color: $black;
+          .message-user {
+            height: 40px;
+            width: 40px;
+            background-color: $form;
+            float: left;
+            overflow: hidden;
+            border-radius: 50%;
+            position: relative;
+            top: 10px;
+            color: #333;
+            .avatar {
+              height: 40px;
+              width: 40px;
+            }
+          }
+          .message-user-name {
+            height: 16px;
+            padding-left: 60px;
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-weight: bold;
+          }
+          .message-body {
+            box-sizing: border-box;
+            width: 600px;
+            float: right;
+            position: relative;
+            padding: 16px;
+            background: #eef0f4;
+            border-radius: 15px;
+            line-height: 1.5;
+            .text {
+              word-break: break-all;
+              font-size: 14px;
+            }
+            .icons {
+              @include clearfix();
+              margin-top: 8px;
+              .icons-left {
+                float: left;
+                color: #aaa;
+                span {
+                  font-size: 14px;
+                }
+              }
+              .icons-right {
+                float: right;
+                color: #aaa;
+                .message-report {
+                  text-decoration: none;
+                  color: #aaa;
+                }
+              }
+            }
+            .fa-caret-left {
+              position: absolute;
+              top: 8px;
+              left: -9px;
+              color: #eef0f4;
+              font-size: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//ネクストリンク
+.nav-item-link-prev-next {
+  margin: 24px auto 0;
+  width: 700px;
+  font-size: 14px;
+  @include clearfix();
+  .nav-item-link-prev {
+    float: left;
+    .prev-item {
+      @include link($blue);
+    }
+  }
+  .nav-item-link-next {
+    float: right;
+    .next-item {
+      @include link($blue);
+    }
+  }
+}
+
 
 
 

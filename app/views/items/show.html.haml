@@ -7,6 +7,7 @@
     %li.item-name
       %span{itemprop: :"title"} うさぎ
 
+//商品情報
 %section.item-box-container
   %h1.item-name うさぎ
   %p.item-wording
@@ -94,11 +95,11 @@
       こちらのうさぎ様を幸せにしてやってください。お願いします！
   .item-button-container
     .item-button-left
-      = link_to items_path, class: "like" do
+      = link_to items_path, class: "icon-like" do
         %i.far.fa-heart
         %span いいね
         %span 234
-      = link_to items_path, class: "report" do
+      = link_to items_path, class: "item-report" do
         %i.fas.fa-flag-checkered
         %span 不適切な商品の報告
     .item-button-right
@@ -106,13 +107,43 @@
         %i.fas.fa-lock
         %span あんしん・安全への取り組み
 
-  .item-detail-message
-    .message-container
-      .message-content
-        %ul.message-items
-          %li
-            .message-user
-            .message-body
+//コメントゾーン
+.item-detail-message
+  .message-container
+    .message-content
+      .message-box
+        .comments-group
+          .message-user
+            = image_tag "img.jpeg", alt: "sample", class: "avatar"
+          .message-user-name
+            石川啄木
+          .message-body
+            .text
+              うさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいい
+            .icons
+              .icons-left
+                %i.far.fa-clock
+                %span 456日前
+              .icons-right
+                = link_to items_path, class: "message-report" do
+                  %i.fas.fa-flag-checkered
+            %i.fas.fa-caret-left
+
+//ネクストリンク
+.nav-item-link-prev-next
+  .nav-item-link-prev
+    = link_to items_path, class: "prev-item" do
+      %i.fas.fa-angle-left
+      %span 前の商品
+  .nav-item-link-next
+    = link_to items_path, class: "next-item" do
+      %i.fas.fa-angle-right
+      %span 次の商品
+
+//SNS
+//他商品
+
+
 
 
 
