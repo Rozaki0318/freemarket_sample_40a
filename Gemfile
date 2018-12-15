@@ -36,6 +36,12 @@ gem 'erb2haml'
 # for pry added 2018.12.13 by ozaki
 gem 'pry-rails'
 
+# for devise added 2018.12.14 by suzuki
+gem 'devise'
+
+# for font-awesome-rails 2018.12.14 by suzuki
+gem "font-awesome-rails"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
