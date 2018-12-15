@@ -1,0 +1,121 @@
+%nav.bread-crumbs
+  %ul
+    %li
+      = link_to items_path, itemprop: 'url', class: "parent" do
+        %span{itemprop: :"title"} メルカリ
+      %i.fas.fa-angle-right
+    %li.item-name
+      %span{itemprop: :"title"} うさぎ
+
+%section.item-box-container
+  %h1.item-name うさぎ
+  %p.item-wording
+    『うさぎ』は、1234回の取引実績を持つ
+    = link_to "国木田独歩", items_path, class: "seller"
+    さんから出品されました。
+    = link_to "ナイキ", items_path, class: "seller"
+    (
+    = link_to "スニーカー/メンズ", items_path, class: "seller"
+    )の商品で、愛知県から4~7日で発送されます。
+  .item-main-content
+    .item-photo
+      .owl-carousel
+        .owl-stage-outer
+        .owl-dots
+    %table.item-detail-table
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = link_to items_path, class: "seller-name" do
+              国木田独歩
+            .face
+              .item-user-ratings
+                %i.fas.fa-laugh
+                55
+              .item-user-ratings
+                %i.fas.fa-meh
+                3
+              .item-user-ratings
+                %i.fas.fa-tired
+                0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to items_path, class: "parent" do
+              うさぎ
+            = link_to items_path, class: "child" do
+              %i.fas.fa-angle-right
+              かわいい
+            = link_to items_path, class: "current" do
+              %i.fas.fa-angle-right
+              飼いたい
+        %tr
+          %th ブランド
+          %td
+            = link_to "うさぎ", items_path, class: "brand"
+        %tr
+          %th 商品のサイズ
+          %td 27cm
+        %tr
+          %th 商品の状態
+          %td 新品、未使用
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td 普通郵便(定形、定形外)
+        %tr
+          %th 配送元地域
+          %td
+            = link_to "愛知県", items_path, class: "prefecture"
+        %tr
+          %th 発送日の目安
+          %td 4~7日で発送
+
+  .item-price-box
+    %span.price ￥14,500
+    %span.tax （税込）
+    %span.shipping-fee 送料込み
+  .item-buy-btn
+    = link_to items_path, class: "buy-red" do
+      購入画面に進む
+
+  .item-description
+    %p.item-description-inner
+      とてもかわいいうさぎです。
+      どれくらいかわいいかというと、もう鬼可愛いです。
+      ほんとは手放したくないくらいに。
+
+      しかし私はギャンブルで有り金全てを擦ってしまい、かわいいかわいいうさぎ様に十分なえさを与えることができません。
+
+      ですので、どうか、どうか！
+      こちらのうさぎ様を幸せにしてやってください。お願いします！
+  .item-button-container
+    .item-button-left
+      = link_to items_path, class: "like" do
+        %i.far.fa-heart
+        %span いいね
+        %span 234
+      = link_to items_path, class: "report" do
+        %i.fas.fa-flag-checkered
+        %span 不適切な商品の報告
+    .item-button-right
+      = link_to items_path, class: "safe" do
+        %i.fas.fa-lock
+        %span あんしん・安全への取り組み
+
+  .item-detail-message
+    .message-container
+      .message-content
+        %ul.message-items
+          %li
+            .message-user
+            .message-body
+
+
+
+
+
+

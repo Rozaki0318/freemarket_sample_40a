@@ -1,0 +1,206 @@
+.bread-crumbs {
+  position: relative;
+  border-top: 1px solid #eee;
+  background-color: $white;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  ul {
+    width: 1020px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 16px 0 17px;
+    li {
+      text-overflow: ellipsis;
+      display: inline-block;
+      font-size: 14px;
+      .parent {
+        @include link($black);
+      }
+      .fa-angle-right {
+        margin: 0 8px;
+        font-size: 9px;
+        color: #888;
+      }
+    }
+    .item-name {
+      font-weight: 600;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.item-box-container {
+  box-sizing: border-box;
+  width: 700px;
+  background-color: $white;
+  margin: 40px auto 0;
+  padding: 24px 40px 40px;
+  .item-name {
+    text-align: center;
+    font-size: 24px;
+    color: $black;
+  }
+  .item-wording {
+    color: #888;
+    display: inline;
+    font-size: 14px;
+    .seller {
+      display: inline;
+      @include link(#888);
+    }
+  }
+  .item-main-content {
+    margin-top: 16px;
+    @include clearfix();
+    .item-photo {
+      background: #fafafa;
+      height: 375px;
+      width: 300px;
+      float: left;
+    }
+    .item-detail-table {
+      width:300px;
+      margin: 0 auto;
+      float: right;
+      height: 375px;
+      border: 1px solid #f5f5f5;
+      border-collapse: collapse;
+      tbody {
+        color: $black;
+        tr {
+          font-size: 14px;
+          th {
+            width: 39%;
+            text-align: left;
+            font-weight: 400;
+            background: $form;
+            padding: 8px;
+            border: 1px solid #f5f5f5;
+          }
+          td {
+            font-weight: 400;
+            width: 61%;
+            padding: 8px;
+            border: 1px solid #f5f5f5;
+            .seller-name {
+              @include link($blue);
+            }
+            .face {
+              .item-user-ratings:first-child {
+                margin: 0;
+              }
+              .item-user-ratings{
+                margin: 8px 0 0 16px;
+                display: inline-block;
+                .fa-laugh {
+                  @include face(#ef5185);
+                }
+                .fa-meh {
+                  @include face(#fba933);
+                }
+                .fa-tired {
+                  @include face(#6ab5d8);
+                }
+              }
+            }
+            .parent {
+              display: block;
+              @include link($blue);
+            }
+            .child {
+              display: block;
+              @include link($blue);
+            }
+            .current {
+              display: block;
+              @include link($blue);
+            }
+            .brand {
+              @include link($blue);
+            }
+            .prefecture {
+              @include link($blue);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .item-price-box {
+    margin-top: 24px;
+    text-align: center;
+    .price {
+      margin-right: 16px;
+      font-size: 50px;
+      font-weight: 600;
+    }
+    .tax {
+      font-size: 10px;
+    }
+    .shipping-fee {
+      font-size: 16px;
+    }
+  }
+  .item-buy-btn {
+    margin-top: 16px;
+    height: 60px;
+    line-height: 60px;
+    background-color: $red;
+    text-align: center;
+    .buy-red {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 24px;
+      color: $white;
+    }
+  }
+
+  .item-description {
+    padding-top: 32px;
+    .item-description-inner {
+      white-space: pre-wrap;
+    }
+  }
+  .item-button-container {
+    @include clearfix();
+    margin-top: 16px;
+    span {
+      margin: 1px 0 0 8px;
+    }
+    .item-button-left {
+      float: left;
+      .like {
+        @include btn();
+        .fa-heart {
+          line-height: 1;
+          color: $icon;
+        }
+      }
+      .report {
+        @include btn();
+        margin-left: 16px;
+      }
+    }
+    .item-button-right {
+      float: right;
+      margin-top: 8px;
+      .safe {
+        text-decoration: none;
+        color: $blue;
+        font-size: 14px;
+      }
+    }
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
