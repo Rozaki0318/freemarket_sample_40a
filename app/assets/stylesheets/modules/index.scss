@@ -16,7 +16,7 @@
     }
     .items-box-container {
       margin: 0 auto;
-      width:940px;
+      width: 960px;
       .text-center {
         font-size: 22px;
         margin: 26px 11px;
@@ -25,82 +25,32 @@
           @include link($blue);
         }
       }
+
       // ４ボックス１セット
       .items-box-content {
         @include clearfix();
-        // ここから一つ一つのボックス
+        text-align: center;
+        padding-left: 20px;
         .items-box {
           box-sizing: border-box;
           width: 213px;
           height: 330px;
           background-color: $white;
-          margin: 0 10px;
+          margin-right: 20px;
           float: left;
           position: relative;
           margin-bottom: 80px;
-          .item-link {
-            text-decoration: none;
-            .items-box-photo {
-              margin: auto;
-              top: 0;
-              position: absolute;
-            }
-            .items-box-body {
-              height: 110px;
-              position: absolute;
-              bottom: 0;
-              padding: 16px;
-              box-sizing: border-box;
-              display: block;
-              .items-box-name {
-                @include fadeout();
-                font-weight: 400;
-                margin: auto;
-                height: 3em;
-                overflow: hidden;
-                color: $black;
-                line-height: 1.5em;
-                white-space: normal;
-                font-size: 16px;
-                text-align: left;
-              }
-              .items-box-num {
-                @include clearfix();
-                margin-top: 8px;
-                color: $black;
-                .items-box-price {
-                  float: left;
-                  font-weight: 600;
-                }
-                .items-box-likes {
-                  float: right;
-                  .icon-like-border {
-                    font-size: 16px;
-                    margin-right: 4px;
-                    display: inline-block;
-                  }
-                  .num {
-                    margin-top: 1px;
-                    display: inline-block;
-                    font-weight: 400;
-                    font-size: 12px;
-                  }
-                }
-                .item-box-tax {
-                  font-size: 10px;
-                  clear: both;
-                  margin: auto;
-                  text-align: left;
-                }
-              }
-            }
+          .items-box-photo {
+            width: 213px;
+            height: 220px;
+            overflow: hidden;
           }
         }
       }
       .view-all {
+        box-sizing: border-box;
         text-align: right;
-        padding: 20px 0 30px;
-        margin-right: 20px;
+        padding: 20px 20px 30px 0;
         width: 99.5%;
         font-size: 15px;
         .all-link {
