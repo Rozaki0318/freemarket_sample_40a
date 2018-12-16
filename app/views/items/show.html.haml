@@ -8,7 +8,7 @@
       %span{itemprop: :"title"} うさぎ
 
 //商品情報
-%section.item-box-container
+%section.item-show-container
   %h1.item-name うさぎ
   %p.item-wording
     『うさぎ』は、1234回の取引実績を持つ
@@ -22,7 +22,18 @@
     .item-photo
       .owl-carousel
         .owl-stage-outer
+          = image_tag "img.jpeg", alt: "sample", class: "thumbnail"
         .owl-dots
+          .owl-dot
+            = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
+          .owl-dot
+            = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
+          .owl-dot
+            = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
+          .owl-dot
+            = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
+
+
     %table.item-detail-table
       %tbody
         %tr
@@ -43,12 +54,12 @@
         %tr
           %th カテゴリー
           %td
-            = link_to items_path, class: "parent" do
+            = link_to items_path, class: "top" do
               うさぎ
-            = link_to items_path, class: "child" do
+            = link_to items_path, class: "middle" do
               %i.fas.fa-angle-right
               かわいい
-            = link_to items_path, class: "current" do
+            = link_to items_path, class: "bottom" do
               %i.fas.fa-angle-right
               飼いたい
         %tr
@@ -110,24 +121,16 @@
 //コメントゾーン
 .item-detail-message
   .message-container
+    //コメント一覧
     .message-content
-      .message-box
-        .comments-group
-          .message-user
-            = image_tag "img.jpeg", alt: "sample", class: "avatar"
-          .message-user-name
-            石川啄木
-          .message-body
-            .text
-              うさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいいうさぎかわいい
-            .icons
-              .icons-left
-                %i.far.fa-clock
-                %span 456日前
-              .icons-right
-                = link_to items_path, class: "message-report" do
-                  %i.fas.fa-flag-checkered
-            %i.fas.fa-caret-left
+      = render 'comment'
+    //コメント投稿部分
+    .message-content
+      %p
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.comment-form{name: :"text", type: :"text", value: :""}
+      %button.comment-btn{type: :submit}
+        コメントする
 
 //ネクストリンク
 .nav-item-link-prev-next
@@ -141,7 +144,35 @@
       %span 次の商品
 
 //SNS
+.item-social-media-box
+  %ul.social-media-box
+    %li
+      = link_to items_path, class: "item-show-fb" do
+        %i.fab.fa-facebook
+    %li
+      = link_to items_path, class: "item-show-tw" do
+        %i.fab.fa-twitter
+    %li
+      = link_to items_path, class: "item-show-pin" do
+        %i.fab.fa-pinterest
+
 //他商品
+.items-box-container
+  .items-box-container__in-user-profile
+    %h2.item-box-head
+      = link_to "国木田独歩さんのその他の出品", items_path, class: "another-user-items"
+    .item-box-head__content
+      - 5.times do
+        %section.show-items
+          = render 'index'
+  .items-box-container__in-brands-item
+    %h2.item-box-head
+      = link_to "ナイキ（スニーカー/メンズ）その他の商品", items_path, class: "another-brand-items"
+    .item-box-head__content
+      - 5.times do
+        %section.show-items
+          = render 'index'
+
 
 
 

@@ -29,7 +29,7 @@
 }
 
 //商品情報
-.item-box-container {
+.item-show-container {
   box-sizing: border-box;
   width: 700px;
   background-color: $white;
@@ -57,6 +57,35 @@
       height: 375px;
       width: 300px;
       float: left;
+      .owl-carousel {
+        .owl-stage-outer {
+          position: relative;
+          overflow: hidden;
+          height: 300px;
+          width: 300px;
+          .thumbnail {
+            height: 300px;
+            width: 300px;
+            object-fit: cover;
+          }
+        }
+        .owl-dots {
+          @include clearfix();
+          width: 300px;
+          height: 75px;
+          .owl-dot {
+            width: 75px;
+            height: 75px;
+            float: left;
+            object-fit: contain;
+            .thumbnail-s {
+              height: 75px;
+              width: 75px;
+              object-fit: cover;
+            }
+          }
+        }
+      }
     }
     .item-detail-table {
       width:300px;
@@ -103,15 +132,15 @@
                 }
               }
             }
-            .parent {
+            .top {
               display: block;
               @include link($blue);
             }
-            .child {
+            .middle {
               display: block;
               @include link($blue);
             }
-            .current {
+            .bottom {
               display: block;
               @include link($blue);
             }
@@ -174,7 +203,7 @@
         @include btn();
         .fa-heart {
           line-height: 1;
-          color: $icon;
+          color: $slv;
         }
       }
       .item-report {
@@ -202,11 +231,12 @@
     background-color: $white;
     .message-content {
       padding: 24px;
-      .message-box {
+      //コメント表示部分
+      &__comments {
         list-style: none;
         display: block;
         margin: 0;
-        .comments-group {
+        .comments-box {
           @include clearfix();
           margin: 1.5em 0 0;
           position: relative;
@@ -275,6 +305,33 @@
           }
         }
       }
+      //コメント投稿部分
+      p {
+        background: #fff6de;
+        font-size: 14px;
+        padding: 8px;
+        display: block;
+        color: $black;
+      }
+      .comment-form {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid $slv;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+      .comment-btn {
+        width: 100%;
+        margin-top: 8px;
+        text-align: center;
+        background: #aaa;
+        border: 1px solid #aaa;
+        color: $white;
+        line-height: 48px;
+        display: block;
+      }
     }
   }
 }
@@ -298,6 +355,80 @@
     }
   }
 }
+
+//SNS
+.item-social-media-box {
+  margin: 24px auto;
+  padding: 32px 0 24px;
+  width: 700px;
+  background-color: $white;
+  .social-media-box {
+    margin-top: 16px;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    display: block;
+    li {
+      height: 44px;
+      width: 44px;
+      margin: 4px;
+      display: inline-block;
+      text-align: center;
+      .item-show-fb {
+        @include sns-icon(#385185);
+        .fa-facebook {
+          color: $white;
+        }
+      }
+      .item-show-tw {
+        @include sns-icon($blue);
+        .fa-twitter {
+          color: $white;
+        }
+      }
+      .item-show-pin {
+        @include sns-icon($red);
+        .fa-pinterest {
+          color: $white;
+        }
+      }
+    }
+  }
+}
+
+//他商品
+.items-box-container {
+  width: 740px;
+  margin: 0 auto 40px;
+  padding-left: 20px;
+  box-sizing: border-box;
+    .item-box-head {
+      margin: 24px 0 8px;
+      font-size: 22px;
+      line-height: 1.4;
+      .another-user-items{
+        @include link($blue);
+      }
+      .another-brand-items {
+        @include link($blue);
+      }
+    }
+    .item-box-head__content {
+      @include clearfix();
+      .show-items {
+        box-sizing: border-box;
+        width: 220px;
+        height: 330px;
+        background-color: $white;
+        margin-right: 20px;
+        float: left;
+        position: relative;
+        margin-bottom: 20px;
+      }
+    }
+}
+
+
 
 
 

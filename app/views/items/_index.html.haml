@@ -1,24 +1,13 @@
-%section.pickup-container
-  %h2.pickup-head ピックアップ全商品
-
-  %section.items-box-container
-    %h3.text-center
-      = link_to "新着アイテム", items_path, class: 'genre'
-    .items-box-content
-      - 12.times do
-        %section.items-box
-          = link_to items_path, class: 'item-link' do
-            %figure.items-box-photo
-              = image_tag "img.jpeg", alt: "sample", height: "220px", width: "213px"
-            .items-box-body
-              %h3.items-box-name
-                【本物★人気】ボッテガヴェネタ ダークブラウン レザー ２つ折り 財布
-              .items-box-num
-                .items-box-price ¥1,000
-                .items-box-likes
-                  %i.icon-like-border
-                    %i.far.fa-heart
-                  %span.num 44
-                %p.item-box-tax (税込)
-    .view-all
-      = link_to "すべての商品を見る", items_path, class: 'all-link'
+= link_to items_path, class: 'item-link' do
+  %figure.items-box-photo
+    = image_tag "img.jpeg", alt: "sample", height: "220px", width: "220px"
+  .items-box-body
+    %h3.items-box-name
+      【本物★人気】ボッテガヴェネタ ダークブラウン レザー ２つ折り 財布
+    .items-box-num
+      .items-box-price ¥1,000
+      .items-box-likes
+        %i.icon-like-border
+          %i.far.fa-heart
+        %span.num 44
+      %p.item-box-tax (税込)
