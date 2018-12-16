@@ -1,11 +1,13 @@
 .visible{
   display: block;
   width: 100%;
+
   .header-inner{
     width: 1020px;
     height: 90px;
     margin: 0 auto;
     padding-top: 8px;
+    background: #fff;
     .inner-box {
       @include clearfix();
       .logo {

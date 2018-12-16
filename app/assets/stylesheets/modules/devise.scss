@@ -20,8 +20,6 @@
       margin:40px 0 0;
     }
   }
-  &-single-main{
-  }
   &-footer{
     width: 456px;
     height: 220px;
@@ -189,17 +187,19 @@
   &-default{
   }
   &-red{
-    background: #ea352d;
-    border: 1px solid #ea352d;
-    color: #fff;
-    margin: 40px 0 0;
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    font-size: 14px;
-    transition: all ease-out .3s;
-    cursor: pointer;
-    text-align: center;
+    &-sign{
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      margin: 40px 0 0;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+    }
   }
   &-mail{
     position: relative;
