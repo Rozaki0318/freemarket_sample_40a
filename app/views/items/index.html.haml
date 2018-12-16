@@ -21,4 +21,16 @@
 .contents
   %section.top-image
 
-  = render 'index'
+  %section.pickup-container
+    %h2.pickup-head ピックアップ全商品
+
+    %section.items-box-container
+      %h3.text-center
+        = link_to "新着アイテム", items_path, class: 'genre'
+      .items-box-content
+        - 8.times do
+          %section.items-box
+            = render 'index'
+
+      .view-all
+        = link_to "すべての商品を見る", items_path, class: 'all-link'
