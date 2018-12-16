@@ -9,14 +9,14 @@
         object-fit: fill;
       }
     }
-  .items-box-body {
+  .products {
     height: 110px;
     position: absolute;
     bottom: 0;
     padding: 16px;
     box-sizing: border-box;
     display: block;
-    .items-box-name {
+    &__name {
       @include fadeout();
       font-weight: 400;
       margin: auto;
@@ -28,15 +28,15 @@
       font-size: 16px;
       text-align: left;
     }
-    .items-box-num {
+    &__price {
       @include clearfix();
       margin-top: 8px;
       color: $black;
-      .items-box-price {
+      &--fig {
         float: left;
         font-weight: 600;
       }
-      .items-box-likes {
+      &--likes {
         float: right;
         .icon-like-border {
           font-size: 16px;
@@ -50,7 +50,7 @@
           font-size: 12px;
         }
       }
-      .item-box-tax {
+      &--tax {
         font-size: 10px;
         clear: both;
         margin: auto;
