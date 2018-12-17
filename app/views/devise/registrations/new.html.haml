@@ -1,46 +1,45 @@
-%body
-  .single-container
-    %header.single-header
-      .flex-parent
-        .flex-child-img
-          %h1
-            =link_to image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3942658967", alt: "mercari"),"https://www.mercari.com/jp/"
-        .flex-child-prog
-          %ul.prog-bar
-            %li.prog-unit.active
-              .prog-landmark.active 会員情報
-            %li.prog-unit
-              .prog-landmark 電話番号認証
-            %li.prog-unit
-              .prog-landmark 住所入力
-            %li.prog-unit
-              .prog-landmark 支払い方法
-            %li.prog-unit
-              .prog-landmark 完了
-    %main.single-main
-      %section.l-single-container
-        %h2.l-single-head 会員情報入力
-        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-          = devise_error_messages!
-          .l-single-inner
-            .l-single-content
-              .form-group-top
-                = f.label :nickname, "ニックネーム"
-                %span.form-require 必須
-                = f.text_field :nickname, placeholder: " 例）メルカリ太郎", class: "login-input-text"
-              .form-group
-                = f.label :email, "メールアドレス"
-                %span.form-require 必須
-                = f.email_field :email, placeholder: "PC・携帯どちらでも可能", class: "login-input-text"
-              .form-group
-                = f.label :password, "パスワード"
-                %span.form-require 必須
-                = f.password_field :password, placeholder: "6文字以上",class: "login-input-text"
-              .form-group
-                = f.label :password_confirmation, "パスワード（確認）"
-                %span.form-require 必須
-                = f.password_field :password_confirmation, placeholder: "6文字以上",class: "login-input-text"
-              .form-group.login-captcha
-                = image_tag "https://kanntann.com/wp-content/uploads/2018/02/9b564b94bbf2f711e17c70ae1624a1f2-4.png"
-              = f.submit "次へ進む",class: "btn-red-sign"
-    = render  "devise/shared/footer"
+.single-container
+  %header.single-header
+    .flex-parent
+      .flex-child-img
+        %h1
+          =link_to image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3942658967", alt: "mercari"),"https://www.mercari.com/jp/"
+      .flex-child-prog
+        %ul.prog-bar
+          %li.prog-unit.now
+            .prog-landmark.now 会員情報
+          %li.prog-unit
+            .prog-landmark 電話番号認証
+          %li.prog-unit
+            .prog-landmark 住所入力
+          %li.prog-unit
+            .prog-landmark 支払い方法
+          %li.prog-unit
+            .prog-landmark 完了
+  %main.single-main
+    %section.l-single-container
+      %h2.l-single-head 会員情報入力
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .l-single-inner
+          .l-single-content
+            .form-group-top
+              = f.label :nickname, "ニックネーム"
+              %span.form-require 必須
+              = f.text_field :nickname, placeholder: " 例）メルカリ太郎", class: "login-input-text"
+            .form-group
+              = f.label :email, "メールアドレス"
+              %span.form-require 必須
+              = f.email_field :email, placeholder: "PC・携帯どちらでも可能", class: "login-input-text"
+            .form-group
+              = f.label :password, "パスワード"
+              %span.form-require 必須
+              = f.password_field :password, placeholder: "6文字以上",class: "login-input-text"
+            .form-group
+              = f.label :password_confirmation, "パスワード（確認）"
+              %span.form-require 必須
+              = f.password_field :password_confirmation, placeholder: "6文字以上",class: "login-input-text"
+            .form-group.login-captcha
+              = image_tag "https://kanntann.com/wp-content/uploads/2018/02/9b564b94bbf2f711e17c70ae1624a1f2-4.png"
+            = f.submit "次へ進む",class: "btn-red-sign"
+  = render  "shared/footer_content"

@@ -1,0 +1,7 @@
+%main.l-container
+  = render "sidebar"
+  .l-content
+    .logout-box
+      %form.logout-box__inner
+        .logout-box__inner-btn
+          =link_to "ログアウト",destroy_user_session_path, method: :delete, class: "red-logout"
