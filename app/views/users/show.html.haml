@@ -1,0 +1,62 @@
+%main.l-container
+  = render "sidebar"
+  .l-content
+    %section.mypage-user-icon
+      =link_to "https://www.mercari.com/jp/u/840784334/" do
+        %figure
+          =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/member_photo_noimage_thumb.png"
+        %h2.bold
+          メルカリ太郎
+        .mypage-number
+          %div
+            評価
+            %span.bold
+              0
+          %div
+            出品数
+            %span.bold
+              0
+    %section.mypage-tab-container-notification-todo
+      %ul.mypage-tabs
+        %li.mypage-tabs-active
+          %h3
+            =link_to "お知らせ","#mypage-tab-notification",data: { toggle: 'tab'}
+        %li
+          %h3
+            =link_to "やることリスト","#mypage-tab-todo",data: { toggle: "tab"}
+      .tab-content
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.active
+          %li
+            =link_to "",data: { open: "model" ,model: "banner"},class: "mypage-item-link" do
+              %figure
+                =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", class: "lazyloaded",data: { src: "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png"}
+              .mypage-item-body
+                .mypage-item-text
+                  【あと2日】ファッションアイテムが売れたら“必ず“ポイントがもらえるキャンペーン開催中
+                %time
+                  %i.far.fa-clock
+                  %span
+                    6時間前
+              %i.far.fa-angle-rig.fa-2x
+          %li.mypage-go-list
+            =link_to "一覧を見る", "/jp/mypage/notification/"
+        / %ul#mypage-tab-todo.mypage-item-list.tab-pane
+        /   %li.mypage-item-not-found.bold
+        /     現在、やることリストはありません
+    %section.mypage-tab-container
+      %h2.mypage-tab-head
+        購入した商品
+      %ul.mypage-tabs
+        %li.mypage-tabs-active
+          %h3
+            =link_to "取引中","#mypage-tab-transaction-now",data: { toggle: 'tab'}
+        %li
+          %h3
+            =link_to "過去の取引","#mypage-tab-transaction-old",data: { toggle: "tab"}
+      .tab-content
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.active
+          %li.mypage-item-not-found.bold
+            取引中の商品がありません
+        / %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
+        /   %li.mypage-item-not-found.bold
+        /     過去に取引した商品がありません
