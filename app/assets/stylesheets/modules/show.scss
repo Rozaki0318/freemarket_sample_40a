@@ -397,25 +397,23 @@
 }
 
 //他商品
-.items-box-container {
+.anothes {
   width: 740px;
   margin: 0 auto 40px;
   padding-left: 20px;
   box-sizing: border-box;
-    .item-box-head {
+  &__contents {
+    &-head {
       margin: 24px 0 8px;
       font-size: 22px;
       line-height: 1.4;
-      .another-user-items{
-        @include link($blue);
-      }
-      .another-brand-items {
+      .itemslink {
         @include link($blue);
       }
     }
-    .item-box-head__content {
+    &-items {
       @include clearfix();
-      .show-items {
+      &-box {
         box-sizing: border-box;
         width: 220px;
         height: 330px;
@@ -426,4 +424,5 @@
         margin-bottom: 20px;
       }
     }
+  }
 }

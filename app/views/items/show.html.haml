@@ -157,19 +157,19 @@
         %i.fab.fa-pinterest
 
 //他商品
-.items-box-container
-  .items-box-container__in-user-profile
-    %h2.item-box-head
-      = link_to "国木田独歩さんのその他の出品", items_path, class: "another-user-items"
-    .item-box-head__content
+.anothers
+  .anothers__contents
+    %h2.anothers__contents-head
+      = link_to "国木田独歩さんのその他の出品", items_path, class: "itemslink"
+    .anothers__contents-items
       - 5.times do
-        %section.show-items
+        %section.anothers__contents-items-box
           = render 'index'
-  .items-box-container__in-brands-item
-    %h2.item-box-head
-      = link_to "ナイキ（スニーカー/メンズ）その他の商品", items_path, class: "another-brand-items"
-    .item-box-head__content
+  .another__contents
+    %h2.anothers__contents-head
+      = link_to "ナイキ（スニーカー/メンズ）その他の商品", items_path, class: "itemslink"
+    .anothers__contents-items
       - 5.times do
-        %section.show-items
+        %section.anothers__contents-items-box
           = render 'index'
 
