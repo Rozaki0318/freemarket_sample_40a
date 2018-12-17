@@ -116,27 +116,27 @@
       }
       .footer-cell:last-child {
         margin: 0;
-              .language {
-                width: auto;
-                margin: 0 auto;
-                opacity: .3;
-                display: block;
-                .country-flag {
-                  width: 22px;
-                  text-align: center;
-                  display: inline-block;
-                  vertical-align: middle;
-                }
-                .country {
-                  display: inline-block;
-                  margin-left: 5px;
-                  vertical-align: middle;
-                  color: $white;
-                }
-              }
-              li:last-child {
+        .language {
+          width: auto;
+          margin: 0 auto;
+          opacity: .3;
+          display: block;
+          .country-flag {
+            width: 22px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .country {
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: middle;
+            color: $white;
+          }
+        }
+        li:last-child {
 
-              }
+        }
       }
     }
   }
