@@ -231,6 +231,16 @@
       cursor: pointer;
       text-align: center;
       margin: 16px 0 0;
+      .fa-facebook {
+        color: #fff;
+        background: #385185;
+        font-size: 18px;
+        position: absolute;
+        top: 50%;
+        left: 16px;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+      }
     }
     &-google{
       margin: 16px 0 0;
@@ -247,17 +257,6 @@
       text-align: center;
     }
   }
-}
-
-.fa-facebook{
-    color: #fff;
-    background: #385185;
-    font-size: 18px;
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
 }
 
 .fa-google-plus-g{

@@ -81,6 +81,7 @@
         }
         .l-right {
           float: right;
+          //ログインしてない時
           .login-btn {
             display: inline-block;
             height: 30px;
@@ -112,6 +113,39 @@
               font-size: 14px;
               text-decoration: none;
               padding: 0 10px;
+            }
+          }
+          //ログインしてる時
+          .header-mypage {
+            height: 38px;
+            @include clearfix();
+            &-link {
+              @include mypage-btn();
+              display: flex;
+              align-items: center;
+              .my-avatar {
+                box-sizing: border-box;
+                padding-bottom: 2px;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                overflow: hidden;
+                object-fit: cover;
+              }
+              .header-myp {
+                margin-left: 5px;
+                height: 38px;
+                line-height: 34px;
+              }
+            }
+            &-notice {
+              @include mypage-btn();
+            }
+            &-todo {
+              @include mypage-btn();
+            }
+            .far {
+              font-weight: 900;
             }
           }
         }

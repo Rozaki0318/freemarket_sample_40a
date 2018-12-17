@@ -134,8 +134,8 @@
             color: $white;
           }
         }
-        li:last-child {
-
+        .japan {
+          opacity: 1;
         }
       }
     }
@@ -172,11 +172,5 @@
   .fa-camera {
     font-size: 54px;
     margin-top: 8px;
-  }
-}
-
-.footer-nav-lang{
-  li{
-
   }
 }
