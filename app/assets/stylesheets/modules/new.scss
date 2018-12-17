@@ -1,0 +1,197 @@
+.clearfix{
+  clear: both;
+  padding: 0;
+}
+
+.c{
+  &-single{
+    &-main{
+      width: 650px;
+      background-color: white;
+      margin: 0 auto;
+      &__head{
+        height: 90px;
+        border-bottom: solid 2px;
+        border-color: rgb(245,245,245);
+        &__text{
+          text-align: center;
+          font-size: 19px;
+          font-weight: bold;
+          padding-top: 35px;
+        }
+      }
+      &-container{
+      position: relative;
+      height: 100%;
+      width: 100%;
+      }
+    }
+    &-header{
+      height: 70px;
+      text-align: center;
+      padding-top: 40px;
+    }
+  }
+}
+
+
+.buy{
+  &-content{
+  }
+  &-main{
+    &-content{
+      padding-top: 20px;
+      background-color: white;
+      text-align: center;
+      border-bottom: solid 2px;
+      border-color: rgb(245,245,245);
+      &__name{
+        font-weight: bold;
+        font-size: 15px;
+      }
+      &__price{
+        padding-top: 20px;
+        ul{
+          list-style: none;
+        }
+      }
+      &__point{
+        background-color: gray;
+        opacity: 0.5;
+        height: 45px;
+        width: 270px;
+        margin: 10px auto 0;
+      }
+      &__payment{
+        padding-top: 20px;
+        padding-right: 150px;
+        ul{
+          list-style: none;
+        }
+      }
+      &__error-text{
+        font-size: 12px;
+        color: red;
+        padding-top: 25px;
+      }
+      &__process{
+        background-color: gray;
+        opacity: 0.9;
+        height: 50px;
+        width: 270px;
+        margin: 10px auto 0;
+        margin-bottom: 40px;
+      }
+      &__image{
+          background-color: white;
+          text-align: center;
+      }
+      &__process-msg{
+        padding-top: 15px;
+        color: white;
+      }
+      &__point-msg{
+        padding-top: 15px;
+      }
+    }
+  }
+  &-user-info{
+    background-color: white;
+    border-bottom: solid 2px;
+    border-color: rgb(245,245,245);
+    text-align: left;
+    padding-top: 3px;
+    &__inner{
+      height: 90px;
+      width: 350px;
+      margin: 10px auto 20px;
+      &__msg{
+        font-size: 13px;
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
+      &__postalcode{
+        font-size: 12px;
+        padding-bottom: 5px;
+      }
+      &__address{
+        font-size: 12px;
+        padding-bottom: 5px;
+      }
+      &__name{
+        font-size: 12px;
+        padding-bottom: 5px;
+      }
+      &__fix{
+        font-size: 12px;
+        color: blue;
+        float: right;
+        opacity: 0.7;
+        padding-top: 20px;
+      }
+    }
+  }
+}
+
+.payment{
+  &-msg{
+    font-weight: bold;
+    font-size: 25px;
+    display: inline;
+    text-align: left;
+  }
+  &-price{
+    font-weight: bold;
+    font-size: 28px;
+    display: inline;
+    float: right;
+  }
+  &-options{
+    background-color: white;
+    padding-top: 3px;
+    border-top: solid 2px;
+    border-color: rgb(245,245,245);
+    &__inner{
+      height: 60px;
+      width: 350px;
+      margin: 10px auto 15px;
+      &__msg{
+        font-size: 13px;
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
+      &__name{
+        font-size: 13px;
+        padding-top: 20px;
+      }
+      &__fix{
+        font-size: 12px;
+        color: blue;
+        float: right;
+        opacity: 0.7;
+        padding-top: 20px;
+      }
+    }
+  }
+}
+
+.chanel-img{
+  width: 130px;
+  height: 180px;
+  padding-top: 25px;
+}
+
+.product-price{
+  font-weight: bold;
+  font-size: 28px;
+  margin: 0 auto;
+  display: inline;
+  padding-right: 10px;
+}
+
+.shipping-fee{
+  font-size: 12px;
+  margin: 0 auto;
+  display: inline;
+  padding-right: 10px;
+}
