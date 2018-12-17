@@ -22,15 +22,15 @@
       padding: 0;
       margin-top:0px;
       &-item{
-        border-top: 1px solid #eee;
+        border-top: 1px solid $gray;
         position: relative;
         display: block;
         padding: 16px;
-        background: #fff;
-        color: #333;
+        background: $white;
+        color: $black;
         text-decoration: none;
         &-active{
-          background: #eee;
+          background: $gray;
           font-weight: 600;
         }
       }
@@ -68,7 +68,7 @@
       top: 50%;
       left: 0;
       right: 0;
-      color: #333;
+      color: $black;
       transform: translate(0,-50%);
       text-decoration: none;
       figure{
@@ -90,12 +90,12 @@
   }
   &-tab-container-notification-todo{
     margin: 0;
-    background: #fff;
+    background: $white
   }
   &-tab{
     &-container{
       margin: 40px 0 0;
-      background: #fff;
+      background: $white;
     }
     &-head{
       background: #fafafa;
@@ -108,7 +108,7 @@
 
   &-tabs{
     border: 0;
-    background: #eee;
+    background: $gray;
     font-size: 0;
     list-style: none;
     padding: 0;
@@ -120,15 +120,15 @@
       a{
         position: relative;
         display: block;
-        color: #333;
+        color: $black;
         font-size: 16px;
         line-height: 72px;
         text-decoration: none;
       }
     }
     &-active{
-      border-top: 2px solid #ea352d;
-      background: #fff;
+      border-top: 2px solid $red;
+      background: $white;
     }
   }
   &-item{
@@ -137,7 +137,7 @@
       padding: 0;
       margin: 0;
       li{
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid $gray;
         position: relative;
       }
     }
@@ -146,7 +146,7 @@
       display: block;
       min-height: 80px;
       padding: 16px;
-      color: #333;
+      color: $black;
       figure{
         position: relative;
         overflow: hidden;
@@ -195,7 +195,7 @@
       background-size:contain;
       text-align: center;
       font-size: 16px;
-      color: #ccc;
+      color: $slv;
     }
   }
   &-go-list{
@@ -206,8 +206,8 @@
       display: block;
       height: 56px;
       margin: 0 auto;
-      background: #eee;
-      color: #333;
+      background: $gray;
+      color: $black;
       line-height: 56px;
       text-align: center;
     }
@@ -222,7 +222,7 @@
   position: absolute;
   top: 40%;
   right: 16px;
-  color: #ccc;
+  color: $slv;
   &:before{
       font-family: "Font Awesome 5 Free";
       content: '\f105';
