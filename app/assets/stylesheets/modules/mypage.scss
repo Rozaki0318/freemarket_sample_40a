@@ -1,0 +1,232 @@
+.l{
+  &-container{
+    display: flex;
+    margin: 40px auto 0;
+    width: 1020px;
+    padding: 0 0 40px;
+  }
+  &-side{
+    margin: 0 40px 0 0;
+    width: 280px;
+  }
+  &-content{
+    width: 700px;
+  }
+}
+
+.mypage{
+  &-nav{
+    &-list{
+      list-style: none;
+      min-height: 48px;
+      padding: 0;
+      margin-top:0px;
+      &-item{
+        border-top: 1px solid #eee;
+        position: relative;
+        display: block;
+        padding: 16px;
+        background: #fff;
+        color: #333;
+        text-decoration: none;
+        &-active{
+          background: #eee;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  &-number{
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    margin: 8px 0 0;
+    div{
+      margin: 0 0 0 16px;
+    }
+    span{
+      margin: 0 0 0 8px;
+      font-size: 16px;
+    }
+  }
+  &-head{
+  margin: 40px 0 0;
+  font-size: 16px;
+  }
+  &-user-icon{
+    position: relative;
+    padding: 20px;
+    height: 200px;
+    background-image: url("https://uploader.xzy.pw/upload/20181217124455_f5ddef44_6666747176.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    box-sizing: border-box;
+    a{
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      color: #333;
+      transform: translate(0,-50%);
+      text-decoration: none;
+      figure{
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        border-radius: 50%;
+        img{
+          width: 60px;
+          height: 60px;
+        }
+      }
+      h2{
+        margin: 8px 0 0;
+        font-size: 14px;
+      }
+    }
+  }
+  &-tab-container-notification-todo{
+    margin: 0;
+    background: #fff;
+  }
+  &-tab{
+    &-container{
+      margin: 40px 0 0;
+      background: #fff;
+    }
+    &-head{
+      background: #fafafa;
+      font-size: 16px;
+      line-height: 72px;
+      padding: 0 16px;
+      margin: 0;
+    }
+  }
+
+  &-tabs{
+    border: 0;
+    background: #eee;
+    font-size: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    li{
+      text-align: center;
+      vertical-align: top;
+      width: 50%;
+      a{
+        position: relative;
+        display: block;
+        color: #333;
+        font-size: 16px;
+        line-height: 72px;
+        text-decoration: none;
+      }
+    }
+    &-active{
+      border-top: 2px solid #ea352d;
+      background: #fff;
+    }
+  }
+  &-item{
+    &-list{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      li{
+        border-bottom: 1px solid #eee;
+        position: relative;
+      }
+    }
+    &-link{
+      text-decoration: none;
+      display: block;
+      min-height: 80px;
+      padding: 16px;
+      color: #333;
+      figure{
+        position: relative;
+        overflow: hidden;
+        float: left;
+        width: 48px;
+        height: 48px;
+        margin: 0;
+      }
+      img{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+      }
+      time{
+        display: inline-block;
+        color: #888;
+        font-size: 14px;
+      }
+      span{
+        vertical-align: middle;
+      }
+    }
+    &-body{
+      margin: 0 40px 0 68px;
+    }
+    &-text{
+      overflow: hidden;
+      display: block;
+      display: -webkit-box;
+      max-height: 4.4em;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    &-not-found{
+      padding: 160px 0 60px;
+      background: url(https://uploader.xzy.pw/upload/20181217124022_381cd22f_5648797661.png);
+      background-repeat: no-repeat;
+      background-position: center 40px;
+      background-size:contain;
+      text-align: center;
+      font-size: 16px;
+      color: #ccc;
+    }
+  }
+  &-go-list{
+    position: relative;
+    padding: 16px;
+    a{
+      text-decoration: none;
+      display: block;
+      height: 56px;
+      margin: 0 auto;
+      background: #eee;
+      color: #333;
+      line-height: 56px;
+      text-align: center;
+    }
+  }
+}
+
+.tab-content.tab-pane{
+  display: none;
+}
+
+.far.fa-angle-rig{
+  position: absolute;
+  top: 40%;
+  right: 16px;
+  color: #ccc;
+  &:before{
+      font-family: "Font Awesome 5 Free";
+      content: '\f105';
+      font-weight:900;
+  }
+}
+

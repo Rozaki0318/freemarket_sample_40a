@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     get :choice, on: :collection
     post :follow, on: :member
   end
-  resources :items
 
+  resources :items
 end
