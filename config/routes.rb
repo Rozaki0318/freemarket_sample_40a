@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users do
     get :choice, on: :collection
-    get :logout, on: :collection
+    post :follow, on: :member
+    get :logout, on: :member
+    get :registercard, on: :member
   end
 
   resources :items
