@@ -11,15 +11,21 @@
   span {
     margin: 0;
     display: inline-block;
-    .title {
-      font-weight: bold;
-      font-size: 16px;
-    }
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
     .require {
       background-color: $red;
-      border-radius: 5px;
+      border-radius: 2px;
+      font-size: 12px;
+      color: $white;
+      padding: 3px;
+      position: absolute;
+      top: -4px;
+      right: -40px;
     }
   }
+
   p {
     margin-top: 8px;
     line-height: 1.5;
