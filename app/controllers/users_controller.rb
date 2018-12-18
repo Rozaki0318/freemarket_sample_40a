@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_action :redirect_to_choice, :except => [:choice]
 
+  before_action :redirect_to_choice, :except => [:choice]
+  
   def choice
     render layout: 'layout_content'
   end

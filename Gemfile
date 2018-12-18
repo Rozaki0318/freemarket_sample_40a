@@ -40,7 +40,10 @@ gem 'pry-rails'
 gem 'devise'
 
 # for font-awesome-rails 2018.12.14 by suzuki
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+
+# for jquery-rails 2018.12.17 by suzuki
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
