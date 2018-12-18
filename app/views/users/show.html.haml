@@ -1,6 +1,6 @@
 %main.l-container
   = render "sidebar"
-  .l-content
+  .l-contents
     %section.mypage-user-icon
       =link_to "https://www.mercari.com/jp/u/840784334/" do
         %figure
@@ -25,7 +25,7 @@
           %h3
             =link_to "やることリスト","#mypage-tab-todo",data: { toggle: "tab"}
       .tab-content
-        %ul#mypage-tab-notification.mypage-item-list.tab-pane.show
+        %ul#mypage-tab-notification.mypage-item-list.tab-pane.move-show
           %li
             =link_to "",data: { open: "model" ,model: "banner"},class: "mypage-item-link" do
               %figure
@@ -54,7 +54,7 @@
           %h3
             =link_to "過去の取引","#mypage-tab-transaction-old",data: { toggle: "tab"}
       .tab-content
-        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.show
+        %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.move-show
           %li.mypage-item-not-found.bold
             取引中の商品がありません
         %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     post :follow, on: :member
     get :logout, on: :member
     get :registercard, on: :member
+    get :identification, on: :member
   end
 
   resources :items
