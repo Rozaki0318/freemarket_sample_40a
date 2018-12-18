@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe User do
   describe '#create' do
-    # 名前がなければ登録できない
+    # ニックネームがなければ登録できない
     it "is invalid without a nickname" do
       user = build(:user, nickname: nil)
       user.valid?
