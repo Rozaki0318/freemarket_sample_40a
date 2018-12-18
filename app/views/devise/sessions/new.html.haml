@@ -10,7 +10,8 @@
       .login-form-inner
         %button#facebook-login.btn-sns-facebook
           %i.fab.fa-facebook
-          Facebookでログイン
+          = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path
+          / Facebookでログイン
         %button#google-login.btn-sns-google
           %i.fab.fa-google-plus-g
           Googleでログイン

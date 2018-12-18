@@ -42,6 +42,10 @@ gem 'devise'
 # for font-awesome-rails 2018.12.14 by suzuki
 gem "font-awesome-rails"
 
+# for omniauth 2018.12.18 by ozaki
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
