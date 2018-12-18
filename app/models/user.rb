@@ -7,7 +7,8 @@ class User < ApplicationRecord
 
   def self.find_for_oauth(auth)
     snscredential = SnsCredential.where(uid: auth.uid, provider: auth.provider).first
-    if snscredential ==! nil
+    # binding.pry
+    if snscredential.present?
     user = User.where(id: snscredential.user_id).first
     else
       user = User.create(
