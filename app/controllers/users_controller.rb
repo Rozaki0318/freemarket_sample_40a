@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @nickname = user.nickname
   end
 
+  def edit
+    user = User.find(show_params[:id])
+  end
+
   private
   def redirect_to_choice
     user = User.find(show_params[:id])
