@@ -1,6 +1,5 @@
 .single{
   &-container{
-    padding: 0 0 220px;
     height: 100%;
     img{
       width: 185px;
@@ -352,6 +351,7 @@
   }
   .now {
     color: $red;
+    font-weight: 600;
 
     &:before {
       background: $red;

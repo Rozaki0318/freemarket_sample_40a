@@ -22,10 +22,12 @@
           - if user_signed_in?
             .l-right
               .header-mypage
-                = link_to items_path, class: 'header-nav' do
+                = link_to user_path(current_user), class: 'header-nav' do
                   .header-mypage-link
                     = image_tag "img.jpeg", alt: "sample", class: "my-avatar"
-                    %span.header-myp マイページ
+                    %span.header-myp
+                      = current_user.nickname
+                      さんのマイページ
                 .header-mypage-notice
                   %i.far.fa-bell
                   %span.header-notice お知らせ
