@@ -1,0 +1,121 @@
+.l{
+  &-content{
+    background-color: white;
+    height: 100%;
+    .form-group .input-default {
+      width: 100%;
+      margin: 8px 0 0;
+    }
+    .form-group select {
+    width: 100%;
+    }
+    .input-default{
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+    }
+    .signup-card-list{
+      list-style: none;
+      li{
+        display: inline-block;
+      }
+    }
+    .signup-form-expire .select-wrap {
+        display:flex;
+        width: 35%;
+        margin: 8px 0 0;
+        .select-default {
+          position: relative;
+          z-index: 2;
+          height: 48px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          cursor: pointer;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+        }
+        .fa-angle-down {
+          position: relative;
+          top: 12px;
+          left: -20px;
+          z-index: 1;
+          color: gray;
+        }
+        .mozi {
+          position: relative;
+          top: 13px;
+          left: -10px;
+        }
+    }
+    .signup-seqcode {
+      padding: 0;
+      text-align: right;
+      label {
+        font-weight: bold;
+        cursor :pointer;
+      }
+      input {
+        display: none;
+      }
+      .signup-seqcode-text {
+        text-align: right;
+        color: #0099e8;
+      }
+        .form-question {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0099e8;
+            color: #fff;
+            line-height: 14px;
+            font-size: 12px;
+            text-align: center;
+        }
+    }
+  }
+  &-chapter-head{
+    padding: 8px 24px;
+    text-align: center;
+    font-size: 24px;
+  }
+  &-single-inner {
+    padding: 64px;
+  }
+}
+.signup-seqcode-info {
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: 0.8s;
+}
+.signup-seqcode input:checked ~ .signup-seqcode-info {
+    padding: 10px 0;
+    height: auto;
+    opacity: 1;
+    border-radius: 6px;
+    background: #eee;
+    text-align: center;
+}
+#submit-button {
+    margin: 40px 0 0;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+}
