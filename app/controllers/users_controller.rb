@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     @nickname = user.nickname
   end
 
+  def edit
+    user = User.find(show_params[:id])
+
   def identification
   end
 
