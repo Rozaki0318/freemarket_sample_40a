@@ -69,3 +69,43 @@
   margin-left: 20px;
   color: $black;
 }
+
+@mixin items-new() {
+  box-sizing: border-box;
+  background-color: $white;
+  margin: 0 auto 2px;
+  color: $black;
+  width: 700px;
+  font-size: 14px;
+  vertical-align: middle;
+
+    span {
+    margin: 0;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    line-height: 1;
+    .require {
+      background-color: $red;
+      border-radius: 2px;
+      font-size: 12px;
+      color: $white;
+      padding: 3px;
+      position: absolute;
+      top: -1px;
+      right: -40px;
+      line-height: 1;
+    }
+  }
+}
+
+@mixin new-item-form($width) {
+  outline: 0;
+  background: $white;
+  font-size: 16px;
+  border: 1px solid $slv;
+  line-height: 1.5;
+  margin-top: 8px;
+  width: ($width);
+}

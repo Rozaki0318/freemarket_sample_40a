@@ -1,0 +1,154 @@
+.new-header {
+  @include items-new();
+  text-align: center;
+  padding: 32px 16px;
+  font-weight: bold;
+}
+.new-upload {
+  @include items-new();
+  padding: 40px;
+  p {
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  &__image {
+    position: relative;
+    &-dd {
+      border: dashed 1px lightgray;
+      background-color: $form;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 180px;
+      pre {
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 1;
+      }
+    }
+    .hidden {
+      border: dashed 1px lightgray;
+      height: 180px;
+      width: 100%;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+.new-itembox {
+  @include clearfix();
+  @include items-new();
+  padding: 40px;
+  .input-new {
+    @include new-item-form(100%);
+    box-sizing: border-box;
+    height: 48px;
+    border-radius: 4px;
+    padding: 10px 16px 8px;
+    margin-bottom: 40px;
+  }
+  .textareanew-new {
+    @include new-item-form(100%);
+    box-sizing: border-box;
+    min-height: 104px;
+    padding: 10px;
+  }
+  &__left {
+    float: left;
+    h3 {
+      color: #888;
+      font-size: 14px;
+      .fa-question-circle {
+        color: $blue;
+      }
+    }
+  }
+  &__right {
+    float: right;
+    width: 400px;
+    &--group {
+      margin-top: 40px;
+      .select-new {
+        @include new-item-form(100%);
+        height: 48px;
+        padding: 0 16px;
+        border-radius: 4px;
+      }
+    }
+    &--group:first-child {
+      margin: 0;
+    }
+    .price-container {
+      list-style: none;
+      padding: 0;
+      vertical-align: middle;
+      margin: 0;
+      &__field {
+        @include clearfix();
+        border-top: solid $slv 1px;
+        &--left {
+          float: left;
+          width: 50%;
+          vertical-align: middle;
+          line-height: 70px;
+        }
+        &--right {
+          float: right;
+          width: 50%;
+          box-sizing: border-box;
+          text-align: right;
+          &-input {
+            @include new-item-form(auto);
+            height: 48px;
+            border-radius: 4px;
+            text-align: right;
+            box-sizing: border-box;
+            padding-right: 10px;
+          }
+        }
+      }
+      &__field:first-child {
+        border-top: none;
+      }
+      .middle {
+        padding: 24px 0;
+      }
+      &__field:last-child {
+        font-weight: bold;
+        padding: 24px 0;
+        font-size: 18px;
+      }
+    }
+  }
+  p {
+    line-height: 1.5;
+    margin: 0;
+    .heed {
+      @include link($blue);
+    }
+  }
+  .new-submit {
+    text-decoration: none;
+  }
+  &__create-btn {
+    width: 100%;
+    background-color: $red;
+    color: $white;
+    margin-top: 40px;
+    line-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+  }
+  &__back-btn {
+    width: 45%;
+    margin: 24px auto 0;
+    background-color: #aaa;
+    color: $white;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: middle;
+  }
+}
+
