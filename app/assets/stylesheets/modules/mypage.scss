@@ -9,8 +9,16 @@
     margin: 0 40px 0 0;
     width: 280px;
   }
-  &-content{
+  &-contents{
     width: 700px;
+
+//JQueryに必要な記述
+    .tab-content ul{
+      display: none;
+    }
+    .move-show {
+      display: block !important;
+    }
   }
 }
 
@@ -29,10 +37,10 @@
         background: $white;
         color: $black;
         text-decoration: none;
-        &-active{
-          background: $gray;
-          font-weight: 600;
-        }
+      }
+      .active{
+        background: $gray;
+        font-weight: 600;
       }
     }
   }
@@ -125,7 +133,7 @@
         text-decoration: none;
       }
     }
-    &-active{
+    .active{
       border-top: 2px solid $red;
       background: $white;
     }
@@ -190,7 +198,6 @@
       padding: 160px 0 60px;
       background: url(https://uploader.xzy.pw/upload/20181217124022_381cd22f_5648797661.png);
       background-repeat: no-repeat;
-      background-position: center 40px;
       background-size:contain;
       text-align: center;
       font-size: 16px;
@@ -211,10 +218,6 @@
       text-align: center;
     }
   }
-}
-
-.tab-content.tab-pane{
-  display: none;
 }
 
 .far.fa-angle-rig{

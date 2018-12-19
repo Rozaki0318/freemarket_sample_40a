@@ -1,0 +1,80 @@
+%main.l-container
+  = render "sidebar"
+  .l-content
+    %section.l-chapter-container.mypage-identification
+      %h2.l-chapter-head
+        本人情報の登録
+      %p.text-center
+        お客さまのあんしん・あんぜんな取引のため、本人情報のご登録をお願いしております。
+      = form_for current_user, html: {class: "l-single-inner"} do |f|
+        .form-group
+          = f.label :nickname ,"お名前"
+          %span.form-require
+            必須
+          = f.text_field :nickname, placeholder: "例）山田", class: "input-default"
+          = f.text_field :nickname, placeholder: "例）彩", class: "input-default"
+        .form-group
+          = f.label :nickname, "お名前カナ"
+          %span.form-require
+            必須
+          = f.text_field :nickname, placeholder: "例）ヤマダ", class: "input-default"
+          = f.text_field :nickname, placeholder: "例）アヤ", class: "input-default"
+        .form-group
+          = f.label :nickname, "郵便番号"
+          %span.form-arbitrary
+            任意
+          = f.text_field :nickname, placeholder: "例）1234567", class: "input-default"
+        .form-group
+          = f.label :nickname, "都道府県"
+          %span.form-require
+            必須
+          .select-wrap-pre
+            = f.select :nickname, [["北海道", 0], ["沖縄", 1]], {}, {class: "input-default"}
+            %i.fas.fa-angle-down.fa-lg
+        .form-group
+          = f.label :nickname, "市区町村"
+          %span.form-require
+            必須
+          = f.text_field :nickname, placeholder: "例）横浜市緑区", class: "input-default"
+        .form-group
+          = f.label :nickname, "番地"
+          %span.form-require
+            必須
+          = f.text_field :nickname, placeholder: "例）青山1−1−1", class: "input-default"
+        .form-group
+          = f.label :nickname, "建物名"
+          %span.form-arbitrary
+            任意
+          = f.text_field :nickname, placeholder: "例）柳ビル103", class: "input-default"
+        .form-group
+          = f.label :nickname, "生年月日"
+          %span.form-require
+            必須
+          .birth-form
+            .birthday-select-wrap
+              .select-wrap
+                = f.select :nickname, [["1990", 0], ["2000", 1]], {}, {class: "input-default"}
+              %i.fas.fa-angle-down.fa-lg
+            %span
+              年
+            .birthday-select-wrap
+              .select-wrap.select-wrap__month
+                = f.select :nickname, [["--", 0], ["9", 1]], {}, {class: "input-default"}
+              %i.fas.fa-angle-down.fa-lg
+            %span
+              月
+            .birthday-select-wrap
+              .select-wrap.select-wrap__day
+                = f.select :nickname, [["--", 0], ["30", 1]], {}, {class: "input-default"}
+              %i.fas.fa-angle-down.fa-lg
+            %span
+              日
+          %p.form-info-text
+            ※出品されたことがある、本人情報未登録のお客さまもご対象となります。
+          = f.hidden_field :nickname
+          = f.submit "登録する", class: "btn-default btn-red"
+          .form-group.text-right
+            %p
+              =link_to "https://www.mercari.com/jp/help_center/article/423/" do
+                本人情報の登録について
+                %i.fas.fa-angle-right.fa-lg
