@@ -4,6 +4,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  
+  validates :nickname, presence: true, length: { maximum: 12 }
+  
 
   def self.find_for_oauth(auth)
     snscredential = SnsCredential.where(uid: auth.uid, provider: auth.provider).first

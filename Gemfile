@@ -40,7 +40,10 @@ gem 'pry-rails'
 gem 'devise'
 
 # for font-awesome-rails 2018.12.14 by suzuki
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
+
+# for jquery-rails 2018.12.17 by suzuki
+gem 'jquery-rails'
 
 # for omniauth 2018.12.18 by ozaki
 gem 'omniauth'
@@ -65,6 +68,8 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', "~> 4.4.1"
 end
 
 group :development do
@@ -78,3 +83,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :test do
+  gem 'faker'
+end
