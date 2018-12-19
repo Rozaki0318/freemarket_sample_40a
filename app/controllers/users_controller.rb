@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :redirect_to_choice, :except => [:choice]
 
   def choice
@@ -15,6 +16,8 @@ class UsersController < ApplicationController
 
   def edit
     user = User.find(show_params[:id])
+
+  def identification
   end
 
   private

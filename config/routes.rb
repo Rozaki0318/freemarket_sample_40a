@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     get :logout, on: :member
     get :registercard, on: :member
     get :edit, on: :member
-  end
+    get :identification, on: :member
+end
 
   resources :items
   resources :orders
