@@ -14,7 +14,8 @@
           / Facebookでログイン
         %button#google-login.btn-sns-google
           %i.fab.fa-google-plus-g
-          Googleでログイン
+          = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path
+          / Googleでログイン
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .login-form-inner
           .form-group-top

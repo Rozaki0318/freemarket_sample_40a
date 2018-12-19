@@ -45,6 +45,7 @@ gem "font-awesome-rails"
 # for omniauth 2018.12.18 by ozaki
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
