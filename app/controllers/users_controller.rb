@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def edit
     user = User.find(show_params[:id])
+  end
 
   def identification
   end
