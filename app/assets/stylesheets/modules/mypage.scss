@@ -9,14 +9,14 @@
     margin: 0 40px 0 0;
     width: 280px;
   }
-  &-content{
+  &-contents{
     width: 700px;
 
 //JQueryに必要な記述
     .tab-content ul{
       display: none;
     }
-    .show {
+    .move-show {
       display: block !important;
     }
   }
@@ -198,7 +198,6 @@
       padding: 160px 0 60px;
       background: url(https://uploader.xzy.pw/upload/20181217124022_381cd22f_5648797661.png);
       background-repeat: no-repeat;
-      background-position: center 40px;
       background-size:contain;
       text-align: center;
       font-size: 16px;
