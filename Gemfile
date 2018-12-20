@@ -47,6 +47,7 @@ gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'enum_help'
 
 group :production do
   gem 'unicorn'
@@ -65,6 +66,8 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
+  gem 'carrierwave'
+  gem 'mini_magick'
 end
 
 group :development do

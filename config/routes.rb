@@ -8,7 +8,8 @@ Rails.application.routes.draw do
     get :registercard, on: :member
     get :edit, on: :member
     get :identification, on: :member
-end
+    # resources :items, except: :index
+  end
 
   resources :items
   resources :orders

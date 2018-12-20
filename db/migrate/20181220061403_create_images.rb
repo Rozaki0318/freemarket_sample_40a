@@ -1,6 +1,6 @@
-class CreateItemImages < ActiveRecord::Migration[5.1]
+class CreateImages < ActiveRecord::Migration[5.1]
   def change
-    create_table :item_images do |t|
+    create_table :images do |t|
       t.text :image, null: false
       t.references :item, foreign_key: true
       t.timestamps

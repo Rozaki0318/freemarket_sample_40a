@@ -5,11 +5,16 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @item.images.build
     render layout: 'layout_content'
   end
 
   def create
-    Item.create(name: item_params[:name], description: item_params[:description], price: item_params[:price], condition: item_params[:condition], shipping_from: item_params[:shipping_from], shipping_date: item_params[:shipping_date], shipping_fee: item_params[:shipping_fee], shipping_way: item_params[:shipping_way], user_id: current_user.id)
+    @item = Item.new(item_params)
+    @item.save
+    redirect_to items_path
+
   end
 
   def show
@@ -17,11 +22,23 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.permit(:name, :description, :price, :condition, :shipping_from, :shipping_date, :shipping_fee, :shipping_way)
+    binding.pry
+    # params.require(:item).require(:images_attributes).require(:"0")[:image]
+    # params.require(:item)[:images_attributes] = params.require(:item).require(:images_attributes).require(:"0")[:image]
+    params.require(:item).permit(:name, :description, :price, :condition, :shipping_from, :shipping_date, :shipping_fee, :shipping_way, images_attributes: [:image]).merge(user_id: current_user.id)
   end
+
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
+
+
+
+
+# params.require(:item).require(:images_attributes).require(:"0")[:image][i]
+
+
+
 
 end
