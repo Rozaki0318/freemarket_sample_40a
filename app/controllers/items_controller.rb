@@ -22,7 +22,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    binding.pry
     # params.require(:item).require(:images_attributes).require(:"0")[:image]
     # params.require(:item)[:images_attributes] = params.require(:item).require(:images_attributes).require(:"0")[:image]
     params.require(:item).permit(:name, :description, :price, :condition, :shipping_from, :shipping_date, :shipping_fee, :shipping_way, images_attributes: [:image]).merge(user_id: current_user.id)
