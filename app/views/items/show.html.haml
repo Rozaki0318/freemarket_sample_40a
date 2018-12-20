@@ -22,16 +22,28 @@
     .item-photo
       .owl-carousel
         .owl-stage-outer
-          = image_tag "img.jpeg", alt: "sample", class: "thumbnail"
+          .owl-stage
+            .owl-item.active
+              .owl-inner
+                = image_tag "img.jpeg"
+            .owl-item
+              .owl-inner
+                = image_tag "https://i1.wp.com/innublog.com/wp-content/uploads/2018/03/2018y02m17d_125508541.jpg?resize=396%2C266&ssl=1"
+            .owl-item
+              .owl-inner
+                = image_tag "https://pbs.twimg.com/profile_images/3406268893/54b7e1f981b7df7c817af48d1b96ad5e_400x400.jpeg"
+            .owl-item
+              .owl-inner
+                = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vulpes_vulpes_laying_in_snow.jpg/250px-Vulpes_vulpes_laying_in_snow.jpg"
         .owl-dots
           .owl-dot
             = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
           .owl-dot
-            = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
+            = image_tag "https://i1.wp.com/innublog.com/wp-content/uploads/2018/03/2018y02m17d_125508541.jpg?resize=396%2C266&ssl=1", alt: "sample", class: "thumbnail-s"
           .owl-dot
-            = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
+            = image_tag "https://pbs.twimg.com/profile_images/3406268893/54b7e1f981b7df7c817af48d1b96ad5e_400x400.jpeg", alt: "sample", class: "thumbnail-s"
           .owl-dot
-            = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
+            = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vulpes_vulpes_laying_in_snow.jpg/250px-Vulpes_vulpes_laying_in_snow.jpg", alt: "sample", class: "thumbnail-s"
 
 
     %table.item-detail-table

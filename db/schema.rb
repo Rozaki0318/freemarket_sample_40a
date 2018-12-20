@@ -10,6 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20181219183234) do
+
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name", null: false
+    t.string "depth"
+    t.integer "size_pulldown", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+
 ActiveRecord::Schema.define(version: 20181220091414) do
 
   create_table "sns_credentials", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

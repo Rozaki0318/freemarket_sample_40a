@@ -12,5 +12,5 @@ end
 
   resources :items
   resources :orders
-
+  resources :categories
 end
