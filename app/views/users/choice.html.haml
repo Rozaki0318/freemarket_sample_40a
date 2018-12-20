@@ -8,10 +8,12 @@
           %i.far.fa-envelope
         %button#facebook-login.btn-sns.btn-sns-facebook
           %i.fab.fa-facebook
-          Facebookで登録
+          = link_to "Facebookで登録", user_facebook_omniauth_authorize_path
+          / Facebookで登録
         %button#google-login.btn-sns.btn-sns-google
           %i.fab.fa-google-plus-g
-          Googleで登録
+          = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path
+          / Googleで登録
 
 /   %form#login_form_facebook{:action => "/jp/signup/facebook/", :method => "POST", :novalidate => "novalidate"}   facebook認証とgoogle認証で使う。
 /     %input{:name => "__csrf_value", :type => "hidden", :value => "4e97b39adc302bb741ea51d528041d2bc148a2f01d2e2af05e112cc27344da870d6dc0d34320487de1fee3716c99dc4063f5241392ec211d71e9c2019cf5f36ef"}/
