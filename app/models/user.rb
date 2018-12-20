@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: %i[facebook google_oauth2]
   
   validates :nickname, presence: true, length: { maximum: 12 }
+
+  has_many :items
   
 
   def self.find_for_oauth(auth)
