@@ -59,6 +59,9 @@ gem 'enum_help'
   gem 'mini_magick'
   gem 'fog-aws'
 
+# for reCAPTCHA 2018.12.21 ozaki
+  gem 'recaptcha', require: "recaptcha/rails"
+
 group :production do
   gem 'unicorn'
 end

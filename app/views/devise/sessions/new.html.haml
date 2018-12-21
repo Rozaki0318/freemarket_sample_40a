@@ -23,7 +23,7 @@
           .form-group-top
             = f.password_field :password, autocomplete: "current-password" ,placeholder: "パスワード", class: "login-input-text"
           .form-group.login-captcha
-            =image_tag "https://kanntann.com/wp-content/uploads/2018/02/9b564b94bbf2f711e17c70ae1624a1f2-4.png"
+            = recaptcha_tags callback: 'successRecaptchaVerified'
           = f.submit "ログイン", class: "login-submit btn-red-sign"
           .login-form-inner-forget
             = link_to "パスワードをお忘れの方", new_password_path(resource_name)
