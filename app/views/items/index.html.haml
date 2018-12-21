@@ -18,6 +18,14 @@
     .box3
     .box4
 
+
+
+
+
+
+
+
+
 .contents
   %section.top-image
 
@@ -28,9 +36,8 @@
       %h3.text-center
         = link_to "新着アイテム", items_path, class: 'genre'
       .items-box-content
-        - 8.times do
-          %section.items-box
-            = render 'index'
+
+        = render @items
 
       .view-all
         = link_to "すべての商品を見る", items_path, class: 'all-link'

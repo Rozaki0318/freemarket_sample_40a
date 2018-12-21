@@ -2,9 +2,15 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
+    @items = Item.includes(:user).limit(8)
+    @item = @items.find(47)
+    @images = Image.all
+    @image = @images.find(33)
+    # @images = Image.includes(:item)
   end
 
   def new
+    @large_categories = Category.find_by_sql(['select * from categories where depth is NULL'])
     @item = Item.new
     @item.images.build
     render layout: 'layout_content'
@@ -14,31 +20,34 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.save
     redirect_to items_path
-
   end
 
   def show
   end
 
-  private
-  def item_params
-    binding.pry
-    # params.require(:item).require(:images_attributes).require(:"0")[:image]
-    # params.require(:item)[:images_attributes] = params.require(:item).require(:images_attributes).require(:"0")[:image]
-    params.require(:item).permit(:name, :description, :price, :condition, :shipping_from, :shipping_date, :shipping_fee, :shipping_way, images_attributes: [:image]).merge(user_id: current_user.id)
+
+
+  def set_categories
+
+    large_category = Category.find_by_sql(['select * from categories where depth is NULL'])
+
   end
 
+
+
+
+
+
+
+
+
+  private
+  def item_params
+    params.require(:item).permit(:name, :description, :price, :condition, :shipping_from, :shipping_date, :shipping_fee, :shipping_way, images_attributes: [:image]).merge(user_id: current_user.id)
+  end
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
-
-
-
-
-# params.require(:item).require(:images_attributes).require(:"0")[:image][i]
-
-
-
 
 end

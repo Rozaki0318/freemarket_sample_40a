@@ -1,6 +1,8 @@
 class Item < ApplicationRecord
+  belongs_to :category
   belongs_to :user
   has_many :images
+  mount_uploader :image, ImageUploader
   accepts_nested_attributes_for :images
 
   enum condition: [:lv0, :lv1, :lv2, :lv3, :lv4, :lv5, :lv6]

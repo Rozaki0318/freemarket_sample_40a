@@ -15,16 +15,13 @@
       = f.fields_for :images do |fin|
         = fin.file_field :image, class: 'hidden', required: true
 
-
-
-
-
-
-
-
-
-
-
+    .new-upload__image
+      .new-upload__image-dd
+        %pre
+          ドラッグアンドドロップ
+          またはクリックしてファイルをアップロード
+      = f.fields_for :images do |fin|
+        = fin.file_field :image, class: 'hidden', required: true
 
 
 
@@ -77,12 +74,17 @@
         %span
           配送料の負担
           .require 必須
-        = f.select :shipping_fee, Item.shipping_fees_i18n.invert, {}, class: 'select-new', placeholder: 0
-      .new-itembox__right--group
+        = f.select :shipping_fee, Item.shipping_fees_i18n.invert, {}, class: 'select-new fee', placeholder: 0
+      .new-itembox__right--group#sw-in
         %span
           配送の方法
           .require 必須
         = f.select :shipping_way, Item.shipping_ways_i18n.invert, {}, class: 'select-new', placeholder: 0
+      .new-itembox__right--group#sw-out
+        %span
+          配送の方法
+          .require 必須
+        = f.select :shipping_way, Item.shipping_ways_i18n.slice(:w0, :w1, :w6, :w7, :w3).invert, {}, class: 'select-new', placeholder: 0
       .new-itembox__right--group
         %span
           発送元の地域

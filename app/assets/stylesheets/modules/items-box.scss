@@ -6,10 +6,13 @@
     top: 0;
     position: absolute;
       .item-image {
-        object-fit: fill;
+        width: 220px;
+        height: 220px;
+        object-fit: cover;
       }
     }
   .products {
+    width: 100%;
     height: 110px;
     position: absolute;
     bottom: 0;
