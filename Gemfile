@@ -54,6 +54,11 @@ gem 'omniauth-google-oauth2'
 # gem 'capistrano-rails', group: :development
 gem 'enum_help'
 
+# updated 2018.12.21 ozaki
+  gem 'carrierwave'
+  gem 'mini_magick'
+  gem 'fog-aws'
+
 group :production do
   gem 'unicorn'
 end
@@ -71,8 +76,8 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_girl_rails', "~> 4.4.1"
-  gem 'carrierwave'
-  gem 'mini_magick'
+  # gem 'carrierwave'
+  # gem 'mini_magick'
 end
 
 group :development do
