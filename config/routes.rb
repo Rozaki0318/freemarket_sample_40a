@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     get :choice, on: :collection
     post :follow, on: :member
     get :logout, on: :member
-    get :registercard, on: :member
     get :edit, on: :member
     get :identification, on: :member
     # resources :items, except: :index
+    resources :cards, :only => [:index, :new, :create, :destroy]
   end
 
   resources :items
