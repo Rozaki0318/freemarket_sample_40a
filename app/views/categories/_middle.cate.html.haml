@@ -1,0 +1,6 @@
+%select.select-new
+  %option{value: :""} ---
+  - @medium_categories.zip(@large_categories) do |mc, lc|
+    -if( mc.depth == "lc.id")
+    %option{value: :"#{mc.id}"} #{mc.name}
+

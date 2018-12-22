@@ -3,14 +3,16 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:user).limit(8)
-    @item = @items.find(47)
-    @images = Image.all
+    # @item = @items.find(47)
+    @images = Image.includes(:item)
     @image = @images.find(33)
     # @images = Image.includes(:item)
   end
 
   def new
     @large_categories = Category.find_by_sql(['select * from categories where depth is NULL'])
+    @medium_categories = Category.find_by_sql(['select * from categories where depth regexp "^[0-9]+$" '])
+    @small_categories = Category.find_by_sql(['select * from categories where depth regexp ".+/.+" '])
     @item = Item.new
     @item.images.build
     render layout: 'layout_content'
@@ -24,21 +26,6 @@ class ItemsController < ApplicationController
 
   def show
   end
-
-
-
-  def set_categories
-
-    large_category = Category.find_by_sql(['select * from categories where depth is NULL'])
-
-  end
-
-
-
-
-
-
-
 
 
   private

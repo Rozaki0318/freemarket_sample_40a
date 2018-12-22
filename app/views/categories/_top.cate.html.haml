@@ -1,0 +1,15 @@
+%select.select-new
+  %option{value: :""} ---
+  - @large_categories.each do |lc|
+    %option{value: :"#{lc.id}"} #{lc.name}
+
+%select.select-new
+  %option{value: :""} ---
+  - @medium_categories.zip(@large_categories).each do|mc, lc|
+    -if( mc.depth == "#{lc.id}")
+      %option{value: :"#{mc.id}"} #{mc.name}
+
+%select.select-new
+  %option{value: :""} ---
+  - @small_categories.each do |sc|
+    %option{value: :"#{sc.id}"} #{sc.name}

@@ -1,5 +1,5 @@
 $(function() {
-  $(document).on('turbolinks:load', function() {
+  // $(document).on('turbolinks:load', function() {
     $('#sw-in').hide();
     $('#sw-out').hide();
     $("select").on('change', function() {
@@ -19,5 +19,5 @@ $(function() {
         break;
       }
     })
-  });
+  // });
 });
