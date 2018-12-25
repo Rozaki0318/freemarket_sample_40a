@@ -25,6 +25,15 @@
 
 
 
+    - if @item.errors.any?
+      #error_explanation.alert.alert-danger
+        %ul
+          - @item.errors.full_messages.each do |message|
+            %li
+              = message
+
+
+
   .new-itembox
     %span
       商品名
@@ -39,12 +48,15 @@
     .new-itembox__left
       %h3 商品の詳細
     .new-itembox__right
-      .new-itembox__right--group
+      .new-itembox__right--group.cate
         %span
           カテゴリー
-          .require 必須
-        = render 'categories/top.cate'
+          .require
+            必須
 
+        = f.collection_select :category, Category.find_by_sql(['select * from categories where depth is NULL']), :id, :name, class: 'select-new', prompt: "---"
+
+      = render partial: "size", locals: { f: f }
 
       .new-itembox__right--group
         %span
@@ -103,12 +115,12 @@
           .price-container__field--left
             %p 販売手数料
           .price-container__field--right
-            %p -
+            %p.commission -
         %li.price-container__field
           .price-container__field--left
             %p 販売利益
           .price-container__field--right
-            %p -
+            %p.profits -
 
   .new-itembox
     %p

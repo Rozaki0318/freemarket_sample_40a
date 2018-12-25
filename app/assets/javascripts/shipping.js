@@ -1,9 +1,9 @@
 $(function() {
-  // $(document).on('turbolinks:load', function() {
-    $('#sw-in').hide();
-    $('#sw-out').hide();
-    $("select").on('change', function() {
+  $(document).on('turbolinks:load', function() {
+    $('#sw-in, #sw-out').hide();
+    $("select.fee").on('change', function() {
       var val = $(this).val();
+      console.log(val);
       switch(val) {
         case "f0" :
         $('#sw-in').hide();
@@ -19,5 +19,5 @@ $(function() {
         break;
       }
     })
-  // });
+  });
 });

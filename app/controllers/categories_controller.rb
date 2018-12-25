@@ -1,7 +1,9 @@
 class CategoriesController < ApplicationController
   def index
-    @large_categories = Category.find_by_sql(['select * from categories where depth is NULL'])
-    @medium_categories = Category.find_by_sql(['select * from categories where depth regexp "^[0-9]+$" '])
-    @small_categories = Category.find_by_sql(['select * from categories where depth regexp ".+/.+" '])
+    @categories = Category.all
+    respond_to do |format|
+      format.json{ @m_cate = @categories.where('depth = ?', "#{params[:id]}")} if params[:id].present?
+      format.json{ @s_cate = @categories.where('depth LIKE(?)', "%/#{params[:key]}")} if params[:key].present?
+    end
   end
 end

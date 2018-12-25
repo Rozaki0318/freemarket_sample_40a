@@ -1,15 +1,29 @@
-%select.select-new
-  %option{value: :""} ---
-  - @large_categories.each do |lc|
-    %option{value: :"#{lc.id}"} #{lc.name}
+-# = f.collection_select :condition, @large_categories, :depth, :name, class: "select-new"
 
-%select.select-new
-  %option{value: :""} ---
-  - @medium_categories.zip(@large_categories).each do|mc, lc|
-    -if( mc.depth == "#{lc.id}")
-      %option{value: :"#{mc.id}"} #{mc.name}
+-# - @large_categories.each do |lc|
+-#   %select.select-new
+-#     %option{value: :""} ---
+-#     - @medium_categories.each do |mc|
+-#       - if (mc.depth == lc.id)
+-#       %option{value: :"#{lc.id}"} #{lc.name}
 
-%select.select-new
-  %option{value: :""} ---
-  - @small_categories.each do |sc|
-    %option{value: :"#{sc.id}"} #{sc.name}
+-#       - if (mc.depth == lc.id)
+-#       %option{value: :"#{lc.id}"} #{lc.name}
+
+
+- @large_categories.each do |lc|
+  = f.collection_select :origin_id, @medium_categories.where(depth == "#{lc.id}"), :id, :name
+
+
+
+
+
+-# = f.collection_select :origin_id, @medium_categories, :id, :name
+
+
+-# = f.collection_select :origin_id, @medium_categories(depth == "#{lc.id}"), :id, :name
+
+-# %select.select-new
+-#   %option{value: :""} ---
+-#   - @small_categories.each do |sc|
+-#     %option{value: :"#{sc.id}"} #{sc.name}
