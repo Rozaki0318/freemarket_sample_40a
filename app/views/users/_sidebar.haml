@@ -2,7 +2,7 @@
   %nav.mypage-nav
     %ul.mypage-nav-list
       %li
-        = link_to user_path,class: "mypage-nav-list-item" do
+        = link_to user_path(current_user.id),class: "mypage-nav-list-item" do
           マイページ
           %i.far.fa-angle-rig.fa-lg
       %li
@@ -88,13 +88,13 @@
         メール/パスワード
         %i.far.fa-angle-rig.fa-lg
     %li
-      = link_to identification_user_path, class: "mypage-nav-list-item" do
+      = link_to identification_user_path(current_user.id), class: "mypage-nav-list-item" do
         本人情報
         %i.far.fa-angle-rig.fa-lg
       = link_to "", class: "mypage-nav-list-item" do
         電話番号の確認
         %i.far.fa-angle-rig.fa-lg
     %li
-      = link_to logout_user_path, class: "mypage-nav-list-item" do
+      = link_to logout_user_path(current_user.id), class: "mypage-nav-list-item" do
         ログアウト
         %i.far.fa-angle-rig.fa-lg
