@@ -1,0 +1,35 @@
+%main.single-main
+  %section.l-single-container
+    %h2.l-single-head 新規会員登録
+    .l-single-inner
+      .l-single-content
+        = link_to new_user_registration_path ,class: "btn-default btn-mail" do
+          メールアドレスで登録
+          %i.far.fa-envelope
+        %button#facebook-login.btn-sns.btn-sns-facebook
+          %i.fab.fa-facebook
+          = link_to "Facebookで登録", user_facebook_omniauth_authorize_path
+          / Facebookで登録
+        %button#google-login.btn-sns.btn-sns-google
+          %i.fab.fa-google-plus-g
+          = link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path
+          / Googleで登録
+
+/   %form#login_form_facebook{:action => "/jp/signup/facebook/", :method => "POST", :novalidate => "novalidate"}   facebook認証とgoogle認証で使う。
+/     %input{:name => "__csrf_value", :type => "hidden", :value => "4e97b39adc302bb741ea51d528041d2bc148a2f01d2e2af05e112cc27344da870d6dc0d34320487de1fee3716c99dc4063f5241392ec211d71e9c2019cf5f36ef"}/
+/     %input{:name => "nickname", :type => "hidden", :value => ""}/
+/     %input{:name => "email", :type => "hidden", :value => ""}/
+/     %input{:name => "facebook_user_id", :type => "hidden", :value => ""}/
+/     %input{:name => "facebook_access_token", :type => "hidden", :value => ""}/
+/     %input{:name => "login_type", :type => "hidden", :value => "facebook"}/
+/     %input{:name => "after_save_callback", :type => "hidden", :value => "https://www.mercari.com/jp/"}/
+/   %form#login_form_google{:action => "/jp/signup/google/", :method => "POST", :novalidate => "novalidate"}
+/     %input{:name => "__csrf_value", :type => "hidden", :value => "4e97b39adc302bb741ea51d528041d2bc148a2f01d2e2af05e112cc27344da870d6dc0d34320487de1fee3716c99dc4063f5241392ec211d71e9c2019cf5f36ef"}/
+/     %input{:name => "nickname", :type => "hidden", :value => ""}/
+/     %input{:name => "email", :type => "hidden", :value => ""}/
+/     %input{:name => "google_user_id", :type => "hidden", :value => ""}/
+/     %input{:name => "google_access_token", :type => "hidden", :value => ""}/
+/     %input{:name => "login_type", :type => "hidden", :value => "google"}/
+/     %input{:name => "after_save_callback", :type => "hidden", :value => "https://www.mercari.com/jp/"}/
+/   %input#google_client_id{:type => "hidden", :value => "238694260676-l0gp5j3hs9p8l2hjmnt126q0b4iin34r.apps.googleusercontent.com"}/
+/   %input#facebook_app_id{:type => "hidden", :value => "466308336793848"}/

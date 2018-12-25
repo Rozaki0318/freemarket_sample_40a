@@ -8,8 +8,8 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6', '>= 5.1.6.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# Use mysql as the database for Active Record
+gem 'mysql2', '>= 0.3.18', '< 0.6.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -30,8 +30,41 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# for haml added 2018.12.13 by ozaki
+gem 'haml-rails'
+gem 'erb2haml'
+# for pry added 2018.12.13 by ozaki
+gem 'pry-rails'
+
+# for devise added 2018.12.14 by suzuki
+gem 'devise'
+
+# for font-awesome-rails 2018.12.14 by suzuki
+gem 'font-awesome-rails'
+
+# for jquery-rails 2018.12.17 by suzuki
+gem 'jquery-rails'
+
+# for omniauth 2018.12.18 by ozaki
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'enum_help'
+
+# updated 2018.12.21 ozaki
+  gem 'carrierwave'
+  gem 'mini_magick'
+  gem 'fog-aws'
+
+# for reCAPTCHA 2018.12.21 ozaki
+  gem 'recaptcha', require: "recaptcha/rails"
+
+group :production do
+  gem 'unicorn'
+end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,6 +72,15 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', "~> 4.4.1"
+  # gem 'carrierwave'
+  # gem 'mini_magick'
 end
 
 group :development do
@@ -52,3 +94,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :test do
+  gem 'faker'
+end

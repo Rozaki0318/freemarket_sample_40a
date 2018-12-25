@@ -1,0 +1,30 @@
+.single-container
+  %header.single-header
+    %h1
+      =link_to image_tag("//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3942658967", alt: "mercari"),"https://www.mercari.com/jp/"
+  %main.single-main
+    .login-panel
+      .login-no-account
+        %p アカウントをお持ちでない方はこちら
+        = link_to "新規会員登録", choice_users_path
+      .login-form-inner
+        %button#facebook-login.btn-sns-facebook
+          %i.fab.fa-facebook
+          = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path
+          / Facebookでログイン
+        %button#google-login.btn-sns-google
+          %i.fab.fa-google-plus-g
+          = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path
+          / Googleでログイン
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .login-form-inner
+          .form-group-top
+            = f.email_field :email, autofocus: true, autocomplete: "email" , placeholder: "メールアドレス",  class: "login-input-text input-default"
+          .form-group-top
+            = f.password_field :password, autocomplete: "current-password" ,placeholder: "パスワード", class: "login-input-text"
+          .form-group.login-captcha
+            = recaptcha_tags callback: 'successRecaptchaVerified'
+          = f.submit "ログイン", class: "login-submit btn-red-sign"
+          .login-form-inner-forget
+            = link_to "パスワードをお忘れの方", new_password_path(resource_name)
+  = render  "shared/footer_content"

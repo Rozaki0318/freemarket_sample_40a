@@ -1,0 +1,35 @@
+.top-main-visual
+  .slider
+    .box1
+    .box2
+      .top-main-visual
+        .top-main-visual__content
+          %h2
+            スマホでかんたん
+            %br
+            フリマアプリ
+          %p
+            メルカリはスマホカメラからすぐに出品できる
+            購入時も安心な独自システムのアプリです
+          %img{class: :appicon, alt: :"画像", border: :"0", src: :"//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?3371656568"}/
+          %img{class: :appicon, alt: :"画像", border: :"0", src: :"//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?3371656568"}/
+        .top-main-visual__image
+          %img{height: :"390px", width: :"440px", alt: :"画像", border: :"0", src: :"//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?3371656568"}/
+    .box3
+    .box4
+
+.contents
+  %section.top-image
+
+  %section.pickup-container
+    %h2.pickup-head ピックアップ全商品
+
+    %section.items-box-container
+      %h3.text-center
+        = link_to "新着アイテム", items_path, class: 'genre'
+      .items-box-content
+
+        = render @items
+
+      .view-all
+        = link_to "すべての商品を見る", items_path, class: 'all-link'

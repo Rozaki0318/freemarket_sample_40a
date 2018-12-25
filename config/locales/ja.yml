@@ -1,0 +1,390 @@
+---
+ja:
+  enums:
+    item:
+      condition:
+        lv0: "---"
+        lv1: "新品、未使用"
+        lv2: "未使用に近い"
+        lv3: "目立った傷や汚れなし"
+        lv4: "やや傷や汚れあり"
+        lv5: "傷や汚れあり"
+        lv6: "全体的に状態が悪い"
+      shipping_fee:
+        f0: "---"
+        f1: "送料込み(出品者負担)"
+        f2: "着払い(購入者負担)"
+      shipping_from:
+        noarea: "---"
+        hkd: "北海道"
+        aomr: "青森県"
+        iwt: "岩手県"
+        myg: "宮城県"
+        akt: "秋田県"
+        ymgt: "山形県"
+        hksm: "福島県"
+        ibrk: "茨城県"
+        tcg: "栃木県"
+        gnm: "群馬県"
+        sitm: "埼玉県"
+        cb: "千葉県"
+        tky: "東京都"
+        kngw: "神奈川県"
+        nigt: "新潟県"
+        tym: "富山県"
+        iskw: "石川県"
+        hki: "福井県"
+        ymns: "山梨県"
+        ngn: "長野県"
+        gf: "岐阜県"
+        szok: "静岡県"
+        aic: "愛知県"
+        mie: "三重県"
+        siga: "滋賀県"
+        kyt: "京都府"
+        osk: "大阪府"
+        hyg: "兵庫県"
+        nara: "奈良県"
+        wkym: "和歌山県"
+        ttr: "鳥取県"
+        smn: "島根県"
+        okym: "岡山県"
+        hrsm: "広島県"
+        ymgc: "山口県"
+        tksm: "徳島県"
+        kgw: "香川県"
+        ehm: "愛媛県"
+        kuc: "高知県"
+        hkok: "福岡県"
+        saga: "佐賀県"
+        ngsk: "長崎県"
+        kmmt: "熊本県"
+        oit: "大分県"
+        myzk: "宮崎県"
+        kgsm: "鹿児島県"
+        oknw: "沖縄県"
+        notyet: "未定"
+      shipping_date:
+        d0: "---"
+        d1: "1~2日で発送"
+        d2: "2~3日で発送"
+        d3: "4~7日で発送"
+      shipping_way:
+        w0: "---"
+        w1: "未定"
+        w2: "らくらくメルカリ便"
+        w3: "ゆうメール"
+        w4: "レターパック"
+        w5: "普通郵便(定型、定形外)"
+        w6: "クロネコヤマト"
+        w7: "ゆうパック"
+        w8: "クリックポスト"
+        w9: "ゆうパケット"
+      size:
+        s0: "---"
+        s1: "XXS以下"
+        s2: "XS(SS)"
+        s3: "S"
+        s4: "M"
+        s5: "L"
+        s6: "XL(LL)"
+        s7: "2XL(3L)"
+        s8: "3XL(4L)"
+        s9: "4XL(5L)以上"
+        s10: "FREE SIZE"
+        s11: "20cm以下"
+        s12: "20.5cm"
+        s13: "21cm"
+        s14: "21.5cm"
+        s15: "22cm"
+        s16: "22.5cm"
+        s17: "23cm"
+        s18: "23.5cm"
+        s19: "23.5cm以下"
+        s20: "24cm"
+        s21: "24.5cm"
+        s22: "25cm"
+        s23: "25.5cm"
+        s24: "26cm"
+        s25: "26.5cm"
+        s25: "27cm"
+        s26: "27.5cm"
+        s27: "28cm"
+        s28: "28.5cm"
+        s29: "29cm"
+        s30: "29.5cm"
+        s31: "30cm"
+        s32: "30.5cm"
+        s33: "31cm"
+        s34: "12インチ"
+        s35: "13インチ"
+        s36: "14インチ"
+        s37: "15インチ"
+        s38: "16インチ"
+        s39: "17インチ"
+        s40: "18インチ"
+        s41: "19インチ"
+        s42: "20インチ"
+        s43: "21インチ"
+        s44: "22インチ"
+        s45: "23インチ"
+        s46: "24インチ"
+        s47: "60cm"
+        s48: "70cm"
+        s49: "80cm"
+        s50: "90cm"
+        s51: "95cm"
+        s52: "100cm"
+        s53: "110cm"
+        s54: "120cm"
+        s55: "130cm"
+        s56: "140cm"
+        s57: "150cm"
+        s58: "160cm"
+        s59: "10.5cm以下"
+        s60: "11cm・11.5cm"
+        s61: "12cm・12.5cm"
+        s62: "13cm・13.5cm"
+        s63: "14cm・14.5cm"
+        s64: "15cm・15.5cm"
+        s65: "16cm・16.5cm"
+        s66: "17cm以上"
+        s67: "140cm〜"
+        s68: "150cm〜"
+        s69: "160cm〜"
+        s70: "170cm〜"
+        s71: "スキーボード"
+        s72: "子供用"
+        s73: "その他"
+        s74: "135cm-140cm未満"
+        s75: "140cm-145cm未満"
+        s76: "145cm-150cm未満"
+        s77: "150cm-155cm未満"
+        s78: "155cm-160cm未満"
+        s79: "160cm-165cm未満"
+        s80: "165cm-170cm未満"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "バリデーションに失敗しました: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    abbr_month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+    month_names:
+    -
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: 約1時間
+        other: 約%{count}時間
+      about_x_months:
+        one: 約1ヶ月
+        other: 約%{count}ヶ月
+      about_x_years:
+        one: 約1年
+        other: 約%{count}年
+      almost_x_years:
+        one: 1年弱
+        other: "%{count}年弱"
+      half_a_minute: 30秒前後
+      less_than_x_minutes:
+        one: 1分以内
+        other: "%{count}分未満"
+      less_than_x_seconds:
+        one: 1秒以内
+        other: "%{count}秒未満"
+      over_x_years:
+        one: 1年以上
+        other: "%{count}年以上"
+      x_days:
+        one: 1日
+        other: "%{count}日"
+      x_minutes:
+        one: 1分
+        other: "%{count}分"
+      x_months:
+        one: 1ヶ月
+        other: "%{count}ヶ月"
+      x_years:
+        one: 1年
+        other: "%{count}年"
+      x_seconds:
+        one: 1秒
+        other: "%{count}秒"
+    prompts:
+      day: 日
+      hour: 時
+      minute: 分
+      month: 月
+      second: 秒
+      year: 年
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: を受諾してください
+      blank: を入力してください
+      present: は入力しないでください
+      confirmation: と%{attribute}の入力が一致しません
+      empty: を入力してください
+      equal_to: は%{count}にしてください
+      even: は偶数にしてください
+      exclusion: は予約されています
+      greater_than: は%{count}より大きい値にしてください
+      greater_than_or_equal_to: は%{count}以上の値にしてください
+      inclusion: は一覧にありません
+      invalid: は不正な値です
+      less_than: は%{count}より小さい値にしてください
+      less_than_or_equal_to: は%{count}以下の値にしてください
+      model_invalid: "バリデーションに失敗しました: %{errors}"
+      not_a_number: は数値で入力してください
+      not_an_integer: は整数で入力してください
+      odd: は奇数にしてください
+      required: を入力してください
+      taken: はすでに存在します
+      too_long: は%{count}文字以内で入力してください
+      too_short: は%{count}文字以上で入力してください
+      wrong_length: は%{count}文字で入力してください
+      other_than: は%{count}以外の値にしてください
+    template:
+      body: 次の項目を確認してください
+      header:
+        one: "%{model}にエラーが発生しました"
+        other: "%{model}に%{count}個のエラーが発生しました"
+  helpers:
+    select:
+      prompt: 選択してください
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新する
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%n%u"
+        precision: 0
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: 円
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: 十億
+          million: 百万
+          quadrillion: 千兆
+          thousand: 千
+          trillion: 兆
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n%u"
+        units:
+          byte: バイト
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+          pb: PB
+          eb: EB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: 、
+      two_words_connector: 、
+      words_connector: 、
+  time:
+    am: 午前
+    formats:
+      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      long: "%Y/%m/%d %H:%M"
+      short: "%m/%d %H:%M"
+    pm: 午後
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

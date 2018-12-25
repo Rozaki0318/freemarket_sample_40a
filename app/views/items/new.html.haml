@@ -1,0 +1,141 @@
+= form_for @item do |f|
+  .new-header
+    %h2 商品の情報を入力
+
+  .new-upload
+    %span
+      出品画像
+      .require 必須
+    %p 最大4枚までアップロードできます
+    .new-upload__image
+      .new-upload__image-dd
+        %pre
+          ドラッグアンドドロップ
+          またはクリックしてファイルをアップロード
+      = f.fields_for :images do |fin|
+        = fin.file_field :image, class: 'hidden', required: true
+
+    .new-upload__image
+      .new-upload__image-dd
+        %pre
+          ドラッグアンドドロップ
+          またはクリックしてファイルをアップロード
+      = f.fields_for :images do |fin|
+        = fin.file_field :image, class: 'hidden', required: true
+
+
+
+    - if @item.errors.any?
+      #error_explanation.alert.alert-danger
+        %ul
+          - @item.errors.full_messages.each do |message|
+            %li
+              = message
+
+
+
+  .new-itembox
+    %span
+      商品名
+      .require 必須
+    = f.text_field :name, class: 'input-new',placeholder: "商品名（必須 40文字まで)"
+    %span
+      商品の説明
+      .require 必須
+    = f.text_area :description, class: 'textareanew-new', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', rows: :"5"
+
+  .new-itembox
+    .new-itembox__left
+      %h3 商品の詳細
+    .new-itembox__right
+      .new-itembox__right--group.cate
+        %span
+          カテゴリー
+          .require
+            必須
+
+        = f.collection_select :category, Category.find_by_sql(['select * from categories where depth is NULL']), :id, :name, class: 'select-new', prompt: "---"
+
+      = render partial: "size", locals: { f: f }
+
+      .new-itembox__right--group
+        %span
+          商品の状態
+          .require 必須
+        = f.select :condition, Item.conditions_i18n.invert, {}, class: 'select-new', placeholder: 0
+
+  .new-itembox
+    .new-itembox__left
+      %h3
+        配送について
+        = fa_icon 'question-circle'
+    .new-itembox__right
+      .new-itembox__right--group
+        %span
+          配送料の負担
+          .require 必須
+        = f.select :shipping_fee, Item.shipping_fees_i18n.invert, {}, class: 'select-new fee', placeholder: 0
+      .new-itembox__right--group#sw-in
+        %span
+          配送の方法
+          .require 必須
+        = f.select :shipping_way, Item.shipping_ways_i18n.invert, {}, class: 'select-new', placeholder: 0
+      .new-itembox__right--group#sw-out
+        %span
+          配送の方法
+          .require 必須
+        = f.select :shipping_way, Item.shipping_ways_i18n.slice(:w0, :w1, :w6, :w7, :w3).invert, {}, class: 'select-new', placeholder: 0
+      .new-itembox__right--group
+        %span
+          発送元の地域
+          .require 必須
+        = f.select :shipping_from, Item.shipping_froms_i18n.invert, {}, class: 'select-new', placeholder: 0
+      .new-itembox__right--group
+        %span
+          発送元までの日数
+          .require 必須
+        = f.select :shipping_date, Item.shipping_dates_i18n.invert, {}, class: 'select-new', placeholder: 0
+
+  .new-itembox
+    .new-itembox__left
+      %h3
+        販売価格(300〜9,999,999)
+        = fa_icon 'question-circle'
+    .new-itembox__right
+      %ul.price-container
+        %li.price-container__field
+          .price-container__field--left
+            %span
+              価格
+              .require 必須
+          .price-container__field--right
+            ￥
+            = f.text_field :price, class: 'price-container__field--right-input',placeholder: "例）300"
+        %li.price-container__field.middle
+          .price-container__field--left
+            %p 販売手数料
+          .price-container__field--right
+            %p.commission -
+        %li.price-container__field
+          .price-container__field--left
+            %p 販売利益
+          .price-container__field--right
+            %p.profits -
+
+  .new-itembox
+    %p
+      = link_to "禁止されている出品", items_path, class: "heed"
+      、
+      = link_to "行為", items_path, class: "heed"
+      を必ずご確認ください。
+    %p
+      またブランド品でシリアルナンバー等がある場合はご記載ください。
+      = link_to "偽ブランドの販売", items_path, class: "heed"
+      は犯罪であり処罰される可能性があります。
+    %p
+      また、出品をもちまして
+      = link_to "加盟店規約", items_path, class: "heed"
+      に同意したことになります。
+    = f.submit '出品する', class: 'new-itembox__create-btn'
+    = link_to :back, class: "new-submit"do
+      .new-itembox__back-btn もどる

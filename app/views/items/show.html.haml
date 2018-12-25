@@ -1,0 +1,187 @@
+%nav.bread-crumbs
+  %ul
+    %li
+      = link_to items_path, itemprop: 'url', class: "parent" do
+        %span{itemprop: :"title"} メルカリ
+      %i.fas.fa-angle-right
+    %li.item-name
+      %span{itemprop: :"title"} うさぎ
+
+//商品情報
+%section.item-show-container
+  %h1.item-name うさぎ
+  %p.item-wording
+    『うさぎ』は、1234回の取引実績を持つ
+    = link_to "国木田独歩", items_path, class: "seller"
+    さんから出品されました。
+    = link_to "ナイキ", items_path, class: "seller"
+    (
+    = link_to "スニーカー/メンズ", items_path, class: "seller"
+    )の商品で、愛知県から4~7日で発送されます。
+  .item-main-content
+    .item-photo
+      .owl-carousel
+        .owl-stage-outer
+          .owl-stage
+            .owl-item.active
+              .owl-inner
+                = image_tag "img.jpeg"
+            .owl-item
+              .owl-inner
+                = image_tag "https://i1.wp.com/innublog.com/wp-content/uploads/2018/03/2018y02m17d_125508541.jpg?resize=396%2C266&ssl=1"
+            .owl-item
+              .owl-inner
+                = image_tag "https://pbs.twimg.com/profile_images/3406268893/54b7e1f981b7df7c817af48d1b96ad5e_400x400.jpeg"
+            .owl-item
+              .owl-inner
+                = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vulpes_vulpes_laying_in_snow.jpg/250px-Vulpes_vulpes_laying_in_snow.jpg"
+        .owl-dots
+          .owl-dot
+            = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
+          .owl-dot
+            = image_tag "https://i1.wp.com/innublog.com/wp-content/uploads/2018/03/2018y02m17d_125508541.jpg?resize=396%2C266&ssl=1", alt: "sample", class: "thumbnail-s"
+          .owl-dot
+            = image_tag "https://pbs.twimg.com/profile_images/3406268893/54b7e1f981b7df7c817af48d1b96ad5e_400x400.jpeg", alt: "sample", class: "thumbnail-s"
+          .owl-dot
+            = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vulpes_vulpes_laying_in_snow.jpg/250px-Vulpes_vulpes_laying_in_snow.jpg", alt: "sample", class: "thumbnail-s"
+
+
+    %table.item-detail-table
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = link_to items_path, class: "seller-name" do
+              国木田独歩
+            .face
+              .item-user-ratings
+                %i.fas.fa-laugh
+                55
+              .item-user-ratings
+                %i.fas.fa-meh
+                3
+              .item-user-ratings
+                %i.fas.fa-tired
+                0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to items_path, class: "top" do
+              うさぎ
+            = link_to items_path, class: "middle" do
+              %i.fas.fa-angle-right
+              かわいい
+            = link_to items_path, class: "bottom" do
+              %i.fas.fa-angle-right
+              飼いたい
+        %tr
+          %th ブランド
+          %td
+            = link_to "うさぎ", items_path, class: "brand"
+        %tr
+          %th 商品のサイズ
+          %td 27cm
+        %tr
+          %th 商品の状態
+          %td 新品、未使用
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td 普通郵便(定形、定形外)
+        %tr
+          %th 配送元地域
+          %td
+            = link_to "愛知県", items_path, class: "prefecture"
+        %tr
+          %th 発送日の目安
+          %td 4~7日で発送
+
+  .item-price-box
+    %span.price ￥14,500
+    %span.tax （税込）
+    %span.shipping-fee 送料込み
+  .item-buy-btn
+    = link_to items_path, class: "buy-red" do
+      購入画面に進む
+
+  .item-description
+    %p.item-description-inner
+      とてもかわいいうさぎです。
+      どれくらいかわいいかというと、もう鬼可愛いです。
+      ほんとは手放したくないくらいに。
+
+      しかし私はギャンブルで有り金全てを擦ってしまい、かわいいかわいいうさぎ様に十分なえさを与えることができません。
+
+      ですので、どうか、どうか！
+      こちらのうさぎ様を幸せにしてやってください。お願いします！
+  .item-button-container
+    .item-button-left
+      = link_to items_path, class: "icon-like" do
+        %i.far.fa-heart
+        %span いいね
+        %span 234
+      = link_to items_path, class: "item-report" do
+        %i.fas.fa-flag-checkered
+        %span 不適切な商品の報告
+    .item-button-right
+      = link_to items_path, class: "safe" do
+        %i.fas.fa-lock
+        %span あんしん・安全への取り組み
+
+//コメントゾーン
+.item-detail-message
+  .message-container
+    //コメント一覧
+    .message-content
+      = render 'comment'
+    //コメント投稿部分
+    .message-content
+      %p
+        相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %textarea.comment-form{name: :"text", type: :"text", value: :""}
+      %button.comment-btn{type: :submit}
+        コメントする
+
+//ネクストリンク
+.nav-item-link-prev-next
+  .nav-item-link-prev
+    = link_to items_path, class: "prev-item" do
+      %i.fas.fa-angle-left
+      %span 前の商品
+  .nav-item-link-next
+    = link_to items_path, class: "next-item" do
+      %i.fas.fa-angle-right
+      %span 次の商品
+
+//SNS
+.item-social-media-box
+  %ul.social-media-box
+    %li
+      = link_to items_path, class: "item-show-fb" do
+        %i.fab.fa-facebook
+    %li
+      = link_to items_path, class: "item-show-tw" do
+        %i.fab.fa-twitter
+    %li
+      = link_to items_path, class: "item-show-pin" do
+        %i.fab.fa-pinterest
+
+//他商品
+.items-box-container.show
+  .items-box-container__in-user-profile
+    %h2.item-box-head
+      = link_to "国木田独歩さんのその他の出品", items_path, class: "another-user-items"
+    .item-box-head__content
+      - 5.times do
+        %section.show-items
+          = render 'index'
+  .items-box-container__in-brands-item
+    %h2.item-box-head
+      = link_to "ナイキ（スニーカー/メンズ）その他の商品", items_path, class: "another-brand-items"
+    .item-box-head__content
+      - 5.times do
+        %section.show-items
+          = render 'index'
+

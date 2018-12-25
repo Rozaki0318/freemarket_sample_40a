@@ -1,0 +1,111 @@
+@mixin clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin fadeout() {
+  &:after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 46px;
+    right: 0;
+    width: 50%;
+    height: 1.5em;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
+    background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+  }
+}
+
+@mixin visual-size($url) {
+  width: 100%;
+  height: 390px;
+  background-image: url($url);
+}
+
+@mixin link($color) {
+  color: $color;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@mixin face($color) {
+  color: $color;
+  font-size: 16px;
+}
+
+@mixin btn() {
+  display: inline-block;
+  color: #333;
+  border: 1px solid #f5f5f5;
+  background: #f5f5f5;
+  padding: 8px 16px;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+@mixin sns-icon($color) {
+  background-color: $color;
+  border-radius: 4px;
+  text-decoration: none;
+  line-height: 44px;
+  height: 44px;
+  width: 44px;
+  display: inline-block;
+}
+
+@mixin mypage-btn() {
+  height: 38px;
+  float: left;
+  vertical-align: middle;
+  line-height: 34px;
+  font-size: 14px;
+  margin-left: 20px;
+  color: $black;
+}
+
+@mixin items-new() {
+  box-sizing: border-box;
+  background-color: $white;
+  margin: 0 auto 2px;
+  color: $black;
+  width: 700px;
+  font-size: 14px;
+  vertical-align: middle;
+
+    span {
+    margin: 0;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 16px;
+    position: relative;
+    line-height: 1;
+    .require {
+      background-color: $red;
+      border-radius: 2px;
+      font-size: 12px;
+      color: $white;
+      padding: 3px;
+      position: absolute;
+      top: -1px;
+      right: -40px;
+      line-height: 1;
+    }
+  }
+}
+
+@mixin new-item-form($width) {
+  outline: 0;
+  background: $white;
+  font-size: 16px;
+  border: 1px solid $slv;
+  line-height: 1.5;
+  margin-top: 8px;
+  width: ($width);
+}

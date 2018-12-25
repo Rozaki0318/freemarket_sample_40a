@@ -1,0 +1,62 @@
+.contents {
+  margin: 0 auto;
+  .top-image {
+    width: 100%;
+    display: block;
+    background-color: white;
+  }
+
+  .pickup-container {
+    padding: 40px;
+    text-align: center;
+    .pickup-head {
+      font-size: 28px;
+      line-height: 1.4px;
+      display: inline-block;
+    }
+    .items-box-container {
+      margin: 0 auto;
+      width: 960px;
+      .text-center {
+        font-size: 22px;
+        margin: 26px 11px;
+        text-align: center;
+        .genre {
+          @include link($blue);
+        }
+      }
+
+      // ４ボックス１セット
+      .items-box-content {
+        @include clearfix();
+        text-align: center;
+        padding-left: 20px;
+        .items-box {
+          box-sizing: border-box;
+          width: 213px;
+          height: 330px;
+          background-color: $white;
+          margin-right: 20px;
+          float: left;
+          position: relative;
+          margin-bottom: 80px;
+          .items-box-photo {
+            width: 213px;
+            height: 220px;
+            overflow: hidden;
+          }
+        }
+      }
+      .view-all {
+        box-sizing: border-box;
+        text-align: right;
+        padding: 20px 20px 30px 0;
+        width: 99.5%;
+        font-size: 15px;
+        .all-link {
+          @include link($blue);
+        }
+      }
+    }
+  }
+}
