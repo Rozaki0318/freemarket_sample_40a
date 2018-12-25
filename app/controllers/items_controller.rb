@@ -3,16 +3,12 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.includes(:user).limit(8)
-    # @item = @items.find(47)
     @images = Image.includes(:item)
     @image = @images.find(35)
-    # @images = Image.includes(:item)
   end
 
   def new
     @large_categories = Category.find_by_sql(['select * from categories where depth is NULL'])
-    # @medium_categories = Category.find_by_sql(['select * from categories where depth regexp "^[0-9]+$" '])
-    # @small_categories = Category.find_by_sql(['select * from categories where depth regexp ".+/.+" '])
     @item = Item.new
     @item.images.build
     render layout: 'layout_content'
@@ -39,6 +35,4 @@ class ItemsController < ApplicationController
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
-
-
 end

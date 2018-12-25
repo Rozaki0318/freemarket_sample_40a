@@ -1,6 +1,13 @@
 $(function() {
   $(document).on('turbolinks:load', function() {
     $('.size-box').hide();
+
+    //引数で渡したクラスのプルダウンだけ表示させる
+    function hidePd(className) {
+      $('.s-wear, .s-f-shoes, .s-m-shoes, .s-tire, .s-kids95, .s-kids100, .s-baby, .s-ski, .s-board').hide();
+      $(className).show();
+      }
+
     //中カテゴリのプルダウン生成
     //前編
     function mBuildPd1() {
@@ -42,14 +49,16 @@ $(function() {
     }
 
     //プルダウンが重複しないようにする
+    //大カテゴリを選び直したとき
     function mRemovePD() {
-      // console.log(cate);
+      $('.size-box').hide();
       if ($('.mcate').length != 0) {
         $('.mcate, .scate').remove();
       }
     }
+    //中カテゴリを選び直したとき
     function sRemovePD() {
-      // console.log(cate);
+      $('.size-box').hide();
       if ($('.scate').length != 0) {
         $('.scate').remove();
       }
@@ -58,58 +67,64 @@ $(function() {
     // 大カテゴリをチョイス
     $("#item_category").on('change', function() {
       var val = $(this).val();
-      // console.log(val);
-      $.ajax({
-        type: 'GET',
-        url: '/categories',
-        data: {id: val},
-        dataType: 'json'
-      })
-      // 成功した時
-      .done(function(data) {
-        mRemovePD();
-        mBuildPd1('mcate');
-        data.forEach(function(mc) {
-          mBuildPd2(mc)
-          mFormEnd('.mcate')
-        });
-      })
-      // 失敗した時
-      .fail(function() {
-        alert('ちょっとごめん、もう一回更新してやり直して');
-      })
-      .always(function() {
-        $('#item_category').prop("disabled", false);
-      })
+      mRemovePD();
+      $('.size-box').hide();
+      if (val.length != 0) {
+        $.ajax({
+          type: 'GET',
+          url: '/categories',
+          data: {id: val},
+          dataType: 'json'
+        })
+        // 成功した時
+        .done(function(data) {
+          mRemovePD();
+          mBuildPd1('mcate');
+          data.forEach(function(mc) {
+            mBuildPd2(mc)
+            mFormEnd('.mcate')
+          });
+        })
+        // 失敗した時
+        .fail(function() {
+          alert('ちょっとごめん、もう一回更新してやり直して');
+        })
+        .always(function() {
+          $('#item_category').prop("disabled", false);
+        })
+      }
     })
 
     // 中カテゴリチョイス
     $(document).on('change','.mcate', function() {
       var val = $(this).val();
-      $.ajax({
-        type: 'GET',
-        url: '/categories',
-        data: {key: val},
-        dataType: 'json'
-      })
-      // 成功した時
-      .done(function(data) {
-        sRemovePD();
-        if(data.length != 0) {
-          sBuildPd1('scate');
-          data.forEach(function(sc) {
-            sBuildPd2(sc)
-            sFormEnd('.scate')
-          });
-        }
-      })
-      // 失敗した時
-      .fail(function() {
-        alert('ちょっとごめん、もう一回更新してやり直して');
-      })
-      .always(function() {
-        $('.mcate').prop("disabled", false);
-      })
+      sRemovePD();
+      if (val.length != 0) {
+        $.ajax({
+          type: 'GET',
+          url: '/categories',
+          data: {key: val},
+          dataType: 'json'
+        })
+        // 成功した時
+        .done(function(data) {
+          sRemovePD();
+          if(data.length != 0) {
+            sBuildPd1('scate');
+            data.forEach(function(sc) {
+              sBuildPd2(sc)
+              sFormEnd('.scate')
+            });
+          }
+        })
+        // 失敗した時
+        .fail(function() {
+          alert('ちょっとごめん、もう一回更新してやり直して');
+        })
+        .always(function() {
+          $('.mcate').prop("disabled", false);
+        })
+      }
     })
 
 
@@ -123,40 +138,31 @@ $(function() {
         $('.size-box').hide();
         break;
         case 1 :
-        $('.size-box, .s-f-shoes, .s-m-shoes, .s-tire, .s-kids95, .s-kids100, .s-baby, .s-ski, .s-board').hide();
-        $('.size-box, .s-wear').show();
+        hidePd('.s-wear')
         break;
         case 2 :
-        $('.size-box, .s-wear, .s-m-shoes, .s-tire, .s-kids95, .s-kids100, .s-baby, .s-ski, .s-board').hide();
-        $('.size-box, .s-f-shoes').show();
+        hidePd('.s-f-shoes')
         break;
         case 3 :
-        $('.size-box, .s-wear, .s-f-shoes, .s-tire, .s-kids95, .s-kids100, .s-baby, .s-ski, .s-board').hide();
-        $('.size-box, .s-m-shoes').show();
+        hidePd('.s-m-shoes')
         break;
         case 4 :
-        $('.size-box, .s-wear, .s-f-shoes, .s-m-shoes, .s-kids95, .s-kids100, .s-baby, .s-ski, .s-board').hide();
-        $('.size-box, .s-tire').show();
+        hidePd('.s-tire')
         break;
         case 5 :
-        $('.size-box, .s-wear, .s-f-shoes, .s-m-shoes, .s-tire, .s-kids100, .s-baby, .s-ski, .s-board').hide();
-        $('.size-box, .s-kids95').show();
+        hidePd('.s-kids95')
         break;
         case 6 :
-        $('.size-box, .s-wear, .s-f-shoes, .s-m-shoes, .s-tire, .s-kids95, .s-baby, .s-ski, .s-board').hide();
-        $('.size-box, .s-kids100').show();
+        hidePd('.s-kids100')
         break;
         case 7 :
-        $('.size-box, .s-wear, .s-f-shoes, .s-m-shoes, .s-tire, .s-kids95, .s-kids100, .s-ski, .s-board').hide();
-        $('.size-box, .s-baby').show();
+        hidePd('.s-baby')
         break;
         case 8 :
-        $('.size-box, .s-wear, .s-f-shoes, .s-m-shoes, .s-tire, .s-kids95, .s-kids100, .s-baby, .s-board').hide();
-        $('.size-box, .s-ski').show();
+        hidePd('.s-ski')
         break;
         case 9 :
-        $('.size-box, .s-wear, .s-f-shoes, .s-m-shoes, .s-tire, .s-kids95, .s-kids100, .s-baby, .s-ski').hide();
-        $('.size-box, .s-board').show();
+        hidePd('.s-board')
         break;
       }
     })

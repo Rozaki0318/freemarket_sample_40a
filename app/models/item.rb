@@ -23,15 +23,10 @@ class Item < ApplicationRecord
   validates :description, presence: true
   validates :price, presence: true, numericality: { only_integer: true }
   validates :condition, presence: true, exclusion: { in: %w(lv0) }
-  validates :shipping_from, presence: true
-  validates :shipping_date, presence: true
-  validates :shipping_fee, presence: true
-  validates :shipping_way, presence: true
+  validates :shipping_from, presence: true, exclusion: { in: %w(noarea) }
+  validates :shipping_date, presence: true, exclusion: { in: %w(d0) }
+  validates :shipping_fee, presence: true, exclusion: { in: %w(f0) }
+  validates :shipping_way, presence: true, exclusion: { in: %w(w0) }
   validates :size, presence: true
   validates :category_id, presence: true
-
-
-
-
-
 end
