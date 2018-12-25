@@ -76,18 +76,6 @@
         padding: 0 16px;
         border-radius: 4px;
       }
-      #item_class {
-        @include new-item-form(100%);
-        height: 48px;
-        padding: 0 16px;
-        border-radius: 4px;
-      }
-      #item_id {
-        @include new-item-form(100%);
-        height: 48px;
-        padding: 0 16px;
-        border-radius: 4px;
-      }
       #item_category {
         @include new-item-form(100%);
         height: 48px;
