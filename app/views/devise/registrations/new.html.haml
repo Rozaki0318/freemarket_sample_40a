@@ -40,6 +40,6 @@
               %span.form-require 必須
               = f.password_field :password_confirmation, placeholder: "6文字以上",class: "login-input-text"
             .form-group.login-captcha
-              = image_tag "https://kanntann.com/wp-content/uploads/2018/02/9b564b94bbf2f711e17c70ae1624a1f2-4.png"
+              = recaptcha_tags callback: 'successRecaptchaVerified'
             = f.submit "次へ進む",class: "btn-red-sign"
   = render  "shared/footer_content"
