@@ -8,10 +8,11 @@ Rails.application.routes.draw do
     get :registercard, on: :member
     get :edit, on: :member
     get :identification, on: :member
-    # resources :items, except: :index
   end
-
   resources :items
   resources :orders
-  resources :categories
+  resources :categories do
+    get :select_top, on: :collection
+    get :select_mid, on: :collection
+  end
 end

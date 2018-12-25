@@ -72,7 +72,7 @@ $(function() {
       if (val.length != 0) {
         $.ajax({
           type: 'GET',
-          url: '/categories',
+          url: '/categories/select_top',
           data: {id: val},
           dataType: 'json'
         })
@@ -102,8 +102,8 @@ $(function() {
       if (val.length != 0) {
         $.ajax({
           type: 'GET',
-          url: '/categories',
-          data: {key: val},
+          url: '/categories/select_mid',
+          data: {id: val},
           dataType: 'json'
         })
         // 成功した時

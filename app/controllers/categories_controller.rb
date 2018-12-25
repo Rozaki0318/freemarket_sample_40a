@@ -1,9 +1,17 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+  end
+
+  def select_top
     respond_to do |format|
-      format.json{ @m_cate = @categories.where('depth = ?', "#{params[:id]}")} if params[:id].present?
-      format.json{ @s_cate = @categories.where('depth LIKE(?)', "%/#{params[:key]}")} if params[:key].present?
+      format.json{ @m_cate = Category.where('depth = ?', "#{params[:id]}")} if params[:id].present?
     end
   end
+
+  def select_mid
+    respond_to do |format|
+      format.json{ @s_cate = Category.where('depth LIKE(?)', "%/#{params[:id]}")} if params[:id].present?
+    end
+  end
+
 end

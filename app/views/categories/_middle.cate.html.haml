@@ -1,4 +1,0 @@
-= f.collection_select :condition, @large_categories, :id, :name
-
-  - @large_categories.each do |lc|
-    = f.collection_select :condition, @medium_categories.select {|m| m.depth =="#{lc.id}"}, :id, :name
