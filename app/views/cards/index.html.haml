@@ -15,6 +15,9 @@
               = @card[0].expiration_month.to_s + "/" + @card[0].expriration_year.to_s
               %img{alt: "", height: "20", src: "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?840690802", width: "49"}/
           - else
-            %button#submit-button.btn-default.btn-red{type: "button"}
-              %i.fas.fa-credit-card クレジットカードを追加する
-
+            = link_to new_user_card_path, id: 'add-card-btn' do
+              %i.fas.fa-credit-card
+              %span.add-card クレジットカードを追加する
+    .settings-not-registration
+      = link_to '支払い方法について', user_cards_path, id: 'for-way-of-payment'
+      %i.fas.fa-angle-right
