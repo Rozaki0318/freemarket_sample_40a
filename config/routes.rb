@@ -7,11 +7,16 @@ Rails.application.routes.draw do
     get :logout, on: :member
     get :edit, on: :member
     get :identification, on: :member
+<<<<<<< HEAD
+=======
     # resources :items, except: :index
     resources :cards, :only => [:index, :new, :create, :destroy]
+>>>>>>> 71671bd548fc5c5b40fa9bf818d57d5a9a157549
   end
-
   resources :items
   resources :orders
-  resources :categories
+  resources :categories do
+    get :select_top, on: :collection
+    get :select_mid, on: :collection
+  end
 end

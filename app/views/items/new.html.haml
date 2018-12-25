@@ -15,16 +15,22 @@
       = f.fields_for :images do |fin|
         = fin.file_field :image, class: 'hidden', required: true
 
+    .new-upload__image
+      .new-upload__image-dd
+        %pre
+          ドラッグアンドドロップ
+          またはクリックしてファイルをアップロード
+      = f.fields_for :images do |fin|
+        = fin.file_field :image, class: 'hidden', required: true
 
 
 
-
-
-
-
-
-
-
+    - if @item.errors.any?
+      #error_explanation.alert.alert-danger
+        %ul
+          - @item.errors.full_messages.each do |message|
+            %li
+              = message
 
 
 
@@ -42,25 +48,16 @@
     .new-itembox__left
       %h3 商品の詳細
     .new-itembox__right
-      .new-itembox__right--group
+      .new-itembox__right--group.cate
         %span
           カテゴリー
-          .require 必須
-        %select.select-new
-          %option{value: :""} ---
-          %option{value: :"1"} レディース
-          %option{value: :"2"} メンズ
-          %option{value: :"3"} ベビー・キッズ
-          %option{value: :"4"} インテリア・住まい・小物
-          %option{value: :"5"} 本・音楽・ゲーム
-          %option{value: :"1328"} おもちゃ・ホビー・グッズ
-          %option{value: :"6"} コスメ・香水・美容
-          %option{value: :"7"} 家電・スマホ・カメラ
-          %option{value: :"8"} スポーツ・レジャー
-          %option{value: :"9"} ハンドメイド
-          %option{value: :"1027"} チケット
-          %option{value: :"1318"} 自動車・オートバイ
-          %option{value: :"10"} その他
+          .require
+            必須
+
+        = f.collection_select :category, Category.find_by_sql(['select * from categories where depth is NULL']), :id, :name, class: 'select-new', prompt: "---"
+
+      = render partial: "size", locals: { f: f }
+
       .new-itembox__right--group
         %span
           商品の状態
@@ -77,12 +74,17 @@
         %span
           配送料の負担
           .require 必須
-        = f.select :shipping_fee, Item.shipping_fees_i18n.invert, {}, class: 'select-new', placeholder: 0
-      .new-itembox__right--group
+        = f.select :shipping_fee, Item.shipping_fees_i18n.invert, {}, class: 'select-new fee', placeholder: 0
+      .new-itembox__right--group#sw-in
         %span
           配送の方法
           .require 必須
         = f.select :shipping_way, Item.shipping_ways_i18n.invert, {}, class: 'select-new', placeholder: 0
+      .new-itembox__right--group#sw-out
+        %span
+          配送の方法
+          .require 必須
+        = f.select :shipping_way, Item.shipping_ways_i18n.slice(:w0, :w1, :w6, :w7, :w3).invert, {}, class: 'select-new', placeholder: 0
       .new-itembox__right--group
         %span
           発送元の地域
@@ -113,12 +115,12 @@
           .price-container__field--left
             %p 販売手数料
           .price-container__field--right
-            %p -
+            %p.commission -
         %li.price-container__field
           .price-container__field--left
             %p 販売利益
           .price-container__field--right
-            %p -
+            %p.profits -
 
   .new-itembox
     %p
@@ -137,4 +139,3 @@
     = f.submit '出品する', class: 'new-itembox__create-btn'
     = link_to :back, class: "new-submit"do
       .new-itembox__back-btn もどる
-
