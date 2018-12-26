@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   def index
     @items = Item.includes(:user).limit(8)
     @images = Image.includes(:item)
-    @image = @images.find(35)
+    @image = @images.find(1)
   end
 
   def new
