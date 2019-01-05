@@ -15,13 +15,15 @@
       出品画像
       .require 必須
     %p 最大4枚までアップロードできます
-    .new-upload__image
-      .new-upload__image-dd
-        %pre
-          ドラッグアンドドロップ
-          またはクリックしてファイルをアップロード
-      = f.fields_for :images do |fin|
-        = fin.file_field :image, class: 'hidden', required: true
+    .new-upload__image-sec
+      %ul#output
+      .new-upload__image
+        #dragarea.new-upload__image-dd
+          %pre
+            ドラッグアンドドロップ
+            またはクリックしてファイルをアップロード
+        = f.fields_for :images do |fin|
+          = fin.file_field :image, class: 'hidden', id: 'fileinput', required: true
 
     .new-upload__image
       .new-upload__image-dd
