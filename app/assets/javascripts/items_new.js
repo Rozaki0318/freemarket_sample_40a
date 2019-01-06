@@ -24,7 +24,7 @@ $(function(){
     e.preventDefault();
   });
 
-   $d.on("drop", function(_e){
+  $d.on("drop", function(_e){
         var e = _e;
         if( _e.originalEvent ){
             e = _e.originalEvent;
@@ -54,7 +54,6 @@ function handleFiles(files){
 function outputImage(blob){
   var image = new Image(),
       blobURL = URL.createObjectURL(blob);
-
       newItem = document.createElement('li');
       upbtn = document.createElement('div');
       upbtn.className = 'sell-upload-button';
@@ -77,9 +76,12 @@ function outputImage(blob){
     output.append(newItem);
 
     var len = $('#output li').length;
-    console.log(len);
     $('.new-upload__image').css( { width: 100 - 25 * len + "%" } );
   });
 };
 
-
+$(document).on('click','.sell-upload-button_delete', function(){
+    $(this).parent().parent().remove();
+    var len = $('#output li').length;
+    $('.new-upload__image').css( { width: 100 - 25 * len + "%" } );
+});
