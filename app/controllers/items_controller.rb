@@ -75,6 +75,8 @@ class ItemsController < ApplicationController
   def search
     @search = Item.ransack(params[:q])
     @result = @search.result
+    @depth1 = Category.where(depth: "1")
+    @size = Size.all
   end
 
   private

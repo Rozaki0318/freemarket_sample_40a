@@ -1,4 +1,30 @@
 - breadcrumb :searchkeyword, params[:q]
+.search-sidebar
+  .search-sidebar__sort
+  .search-sidebar__panel
+    = search_form_for(@search, url:search_items_path) do |f|
+      = f.label :name_cont, '＋キーワード追加'
+      = f.search_field :name_cont
+      = f.label :category_id_eq, 'カテゴリ選択'
+      = f.collection_select :category_id, @depth1, :id, :name
+      = f.label :name_cont, 'ブランド'
+      = f.search_field :name_cont
+      = f.label :size_id_eq, 'サイズ選択'
+      = f.collection_select :size_id, @size, :id, :name
+      = f.label :condition_id_in, '状態'
+      = f.collection_check_boxes :condition_in, Item.conditions, :last, :first do |b|
+        = b.check_box
+        = Item.conditions_i18n[b.object.send(:first)]
+      = f.label :shipping_fee_id_in, '配送料負担'
+      = f.collection_check_boxes :shipping_fee_in, Item.shipping_fees, :last, :first do |b|
+        = b.check_box
+        = Item.shipping_fees_i18n[b.object.send(:first)]
+      / = f.label :status_id_in, '販売状況'
+      / = f.collection_check_boxes :status_id, Item.order.statuses, :last, :first do |b|
+      /   = b.check_box
+      /   = Item.order.statuses_i18n[b.object.send(:first)]
+      = f.submit
+
 .contents
   %section.search-result-container
     .search-result-head
