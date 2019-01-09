@@ -63,7 +63,7 @@ class OrdersController < ApplicationController
 
   def sale # 売手から見たオーダーリスト
     items_ids = current_user.items.pluck(:id)
-    @orders = Order.where(item_id: items_ids).order("created_at DESC")
+    @orders = Order.where(item_id: items_ids).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def pay
