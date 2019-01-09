@@ -1,11 +1,4 @@
-%nav.bread-crumbs
-  %ul
-    %li
-      = link_to items_path, itemprop: 'url', class: "parent" do
-        %span{itemprop: :"title"} メルカリ
-      %i.fas.fa-angle-right
-    %li
-      %span{itemprop: :"title"} うさぎ
+- breadcrumb :item_name, @item
 
 //商品情報
 %section.item-show-container

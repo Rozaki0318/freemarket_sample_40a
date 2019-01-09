@@ -27,3 +27,7 @@ end
 crumb :searchkeyword do |keyword|
   link "#{keyword[:name_cont]}"
 end
+
+crumb :item_name do |item|
+  link "#{item.name}", item_path(params[:id])
+end
