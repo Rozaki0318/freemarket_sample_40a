@@ -27,6 +27,7 @@
       .tab-content
         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.move-show
           = render @orders
+        = paginate(@orders)
         - if @orders.length == 0
           %li.mypage-item-not-found.bold
             取引中の商品がありません

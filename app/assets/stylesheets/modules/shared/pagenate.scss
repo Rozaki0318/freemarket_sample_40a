@@ -1,0 +1,31 @@
+.pagepagepage {
+  margin: 10px;
+  .pagination {
+    text-align: center;
+    margin: 10px auto;
+    line-height: 50px;
+    a {
+      @include link(yellow);
+      // font-weight: bold;
+      height: 50px;
+      width: 50px;
+      border: 1px solid yellow;
+      border-radius: 50%;
+      display: inline-block;
+      background-color: magenta;
+      font-family: 'Faster One', cursive;
+    }
+    .current {
+      color: yellow;
+      // font-weight: bold;
+      border: 1px solid magenta;
+      border-radius: 50%;
+      display: inline-block;
+      height: 50px;
+      width: 50px;
+      background-color: aqua;
+      font-family: 'Faster One', cursive;
+    }
+  }
+}
+

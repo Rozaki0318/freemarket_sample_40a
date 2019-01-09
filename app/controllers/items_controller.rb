@@ -2,9 +2,9 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @items = Item.includes(:user).order("created_at DESC").limit(8)
-    # ids = Order.pluck(:item_id)
-    # @items = items.where.not(id: ids)
+    items = Item.includes(:user).order("created_at DESC").page(params[:page]).per(16)
+    ids = Order.pluck(:item_id)
+    @items = items.where.not(id: ids)
     $search = Item.ransack(params[:q])
   end
 

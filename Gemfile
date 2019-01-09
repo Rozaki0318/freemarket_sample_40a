@@ -64,6 +64,7 @@ gem 'enum_help'
 
   gem 'payjp'
   gem 'gon'
+  gem 'kaminari'
 
   gem 'gretel'
 
