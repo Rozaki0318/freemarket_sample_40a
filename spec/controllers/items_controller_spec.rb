@@ -275,6 +275,11 @@ describe ItemsController do
         expect(response).to redirect_to(items_path)
       end
 
+      it '商品情報編集に失敗したらeditテンプレートにredirectされる' do
+        patch :update, params: { id: item.id, item: {price: nil} }, session: {}
+        expect(response).to redirect_to(edit_item_path(item.id))
+      end
+
     end
 
     context 'ログインしていないとき' do
