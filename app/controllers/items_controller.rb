@@ -74,9 +74,10 @@ class ItemsController < ApplicationController
 
   def search
     @search = Item.ransack(params[:q])
-    @result = @search.result
+    @result = @search.result.includes(:order, :brand)
     @depth1 = Category.where(depth: "1")
     @size = Size.all
+
   end
 
   private

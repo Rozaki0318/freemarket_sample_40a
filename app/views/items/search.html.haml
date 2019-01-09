@@ -1,34 +1,68 @@
 - breadcrumb :searchkeyword, params[:q]
-.search-sidebar
-  .search-sidebar__sort
-  .search-sidebar__panel
-    = search_form_for(@search, url:search_items_path) do |f|
-      = f.label :name_cont, '＋キーワード追加'
-      = f.search_field :name_cont
-      = f.label :category_id_eq, 'カテゴリ選択'
-      = f.collection_select :category_id, @depth1, :id, :name
-      = f.label :name_cont, 'ブランド'
-      = f.search_field :name_cont
-      = f.label :size_id_eq, 'サイズ選択'
-      = f.collection_select :size_id, @size, :id, :name
-      = f.label :condition_id_in, '状態'
-      = f.collection_check_boxes :condition_in, Item.conditions, :last, :first do |b|
-        = b.check_box
-        = Item.conditions_i18n[b.object.send(:first)]
-      = f.label :shipping_fee_id_in, '配送料負担'
-      = f.collection_check_boxes :shipping_fee_in, Item.shipping_fees, :last, :first do |b|
-        = b.check_box
-        = Item.shipping_fees_i18n[b.object.send(:first)]
-      / = f.label :status_id_in, '販売状況'
-      / = f.collection_check_boxes :status_id, Item.order.statuses, :last, :first do |b|
-      /   = b.check_box
-      /   = Item.order.statuses_i18n[b.object.send(:first)]
-      = f.submit
-
 .contents
+  .search-sidebar
+    .search-sidebar__sort
+      %p 並び替え
+      = sort_link(@search, :price, order: :desc, hide_indicator: true) do
+        .price-order-desc 価格の高い順
+      = sort_link(@search, :price, order: :asc, hide_indicator: true) do
+        .price-order-asc 価格の安い順
+      = sort_link(@search, :created_at, order: :desc, hide_indicator: true) do
+        .createdat-order-desc 出品の古い順
+      = sort_link(@search, :created_at, order: :asc, hide_indicator: true) do
+        .createdat-order-desc 出品の新しい順
+    .search-sidebar__panel
+      %p 詳細検索
+      = search_form_for @search, url:search_items_path, html: { method: :post } do |f|
+        %p
+        = f.label :name_cont, '＋キーワード追加'
+        %br
+        = f.search_field :name_cont
+        %p
+        = f.label :category_id_eq, 'カテゴリ選択'
+        %br
+        = f.collection_select :category_id, @depth1, :id, :name
+        %p
+        = f.label :brand_name_cont, 'ブランド'
+        %br
+        = f.search_field :brand_name_cont
+        %p
+        = f.label :size_id_eq, 'サイズ選択'
+        %br
+        = f.collection_select :size_id, @size, :id, :name
+        %p
+        = f.label :price_gteq, "価格"
+        %br
+        = f.text_field :price_gteq
+        = f.label :price_lteq, "~"
+        = f.text_field :price_lteq
+        %p
+        = f.label :condition_id_in, '状態'
+        %br
+        = f.collection_check_boxes :condition_in, Item.conditions, :last, :first do |b|
+          = b.check_box
+          = Item.conditions_i18n[b.object.send(:first)]
+        %p
+        = f.label :shipping_fee_id_in, '配送料負担'
+        %br
+        = f.collection_check_boxes :shipping_fee_in, Item.shipping_fees, :last, :first do |b|
+          = b.check_box
+          = Item.shipping_fees_i18n[b.object.send(:first)]
+        %p
+        = f.label :order_status_in, '販売状況'
+        %br
+        = f.collection_check_boxes :order_status, Order.statuses, :last, :first do |b|
+          = b.check_box
+          = Order.statuses_i18n[b.object.send(:first)]
+        %br
+        = f.submit 'クリア', type: :reset
+        = f.submit
   %section.search-result-container
     .search-result-head
-      = "検索結果 1-#{@result.length}件"
+      - if @result.length == 0
+        = "検索結果 #{@result.length}件"
+      - else
+        = "検索結果 1-#{@result.length}件"
 
     %section.items-box-container
       .items-box-content
