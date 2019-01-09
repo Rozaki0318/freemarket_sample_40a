@@ -76,8 +76,7 @@ class ItemsController < ApplicationController
     @search = Item.ransack(params[:q])
     @result = @search.result.includes(:order, :brand)
     @depth1 = Category.where(depth: "1")
-    @size = Size.all
-
+    @size = Size.find_by_sql(['select * from sizes where parent is NULL'])
   end
 
   private

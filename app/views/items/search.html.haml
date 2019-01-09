@@ -15,40 +15,48 @@
       %p 詳細検索
       = search_form_for @search, url:search_items_path, html: { method: :post } do |f|
         %p
-        = f.label :name_cont, '＋キーワード追加'
+        %i.fas.fa-plus
+        = f.label :name_cont, 'キーワード追加'
         %br
         = f.search_field :name_cont
         %p
+        %i.fas.fa-list-ul
         = f.label :category_id_eq, 'カテゴリ選択'
         %br
         = f.collection_select :category_id, @depth1, :id, :name
         %p
+        %i.fas.fa-tags
         = f.label :brand_name_cont, 'ブランド'
         %br
         = f.search_field :brand_name_cont
         %p
+        %i.fas.fa-expand
         = f.label :size_id_eq, 'サイズ選択'
         %br
         = f.collection_select :size_id, @size, :id, :name
         %p
+        %i.fas.fa-money-bill-wave
         = f.label :price_gteq, "価格"
         %br
         = f.text_field :price_gteq
         = f.label :price_lteq, "~"
         = f.text_field :price_lteq
         %p
+        %i.fas.fa-star
         = f.label :condition_id_in, '状態'
         %br
         = f.collection_check_boxes :condition_in, Item.conditions, :last, :first do |b|
           = b.check_box
           = Item.conditions_i18n[b.object.send(:first)]
         %p
+        %i.fas.fa-truck
         = f.label :shipping_fee_id_in, '配送料負担'
         %br
         = f.collection_check_boxes :shipping_fee_in, Item.shipping_fees, :last, :first do |b|
           = b.check_box
           = Item.shipping_fees_i18n[b.object.send(:first)]
         %p
+        %i.fas.fa-shopping-cart
         = f.label :order_status_in, '販売状況'
         %br
         = f.collection_check_boxes :order_status, Order.statuses, :last, :first do |b|
