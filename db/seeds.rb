@@ -1,7 +1,5 @@
 # require 'csv'
 
-# rake db:seed RAILS_ENV=test
-
 # CSV.read("db/category.csv", headers: false).each do |row|
 #   Category.create!(
 #     id: row[0],
