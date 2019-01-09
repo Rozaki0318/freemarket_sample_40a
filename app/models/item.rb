@@ -4,7 +4,6 @@ class Item < ApplicationRecord
   belongs_to :size
   belongs_to :order
   belongs_to :brand
-  has_many :images
   has_many :images, dependent: :destroy
   has_many :comments
 

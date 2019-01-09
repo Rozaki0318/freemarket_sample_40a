@@ -1,38 +1,23 @@
 FactoryGirl.define do
 
-  factory :category do
-    name { Faker::Name.name }
-    depth "2"
-    size_pulldown "1"
-  end
-
-  factory :brand do
-    name "アディダス"
-  end
-
-  factory :size do
-    name "s"
-    parent "1"
-  end
-
   factory :item do
-    name "jacket"
-    description "abcabcabc"
-    price 3000
-    condition 1
-    shipping_from 1
-    shipping_date 1
-    shipping_fee 1
-    shipping_way 1
-    created_at { Faker::Time.between(2.days.ago, Time.now, :all) }
-    user
-    category
-    size
-    brand
+    name            "大きい帽子"
+    description     "とっても大きい帽子買いませんか？"
+    price           300
+    condition       1
+    shipping_from   1
+    shipping_date   1
+    shipping_fee    1
+    shipping_way    1
+    created_at      { Faker::Time.between(2.days.ago, Time.now, :all) }
+    updated_at      { Faker::Time.between(2.days.ago, Time.now, :all) }
+    brand_id        1
+    category_id     301
+    size_id         10
+
+    after(:create) do |item|
+      create_list(:image, 1, item: item)
+    end
   end
 
-  factory :image do
-    image "image.jpg"
-    item
-  end
 end

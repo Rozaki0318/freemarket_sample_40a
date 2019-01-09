@@ -49,10 +49,10 @@ class ItemsController < ApplicationController
 
   def destroy
     item = Item.find(params[:id])
-    if item.user_id == current_user.id
+    # if item.user_id == current_user.id
       item.destroy
       redirect_to items_path
-    end
+    # end
   end
 
   def edit
@@ -65,11 +65,11 @@ class ItemsController < ApplicationController
   end
 
   def update
-    item = Item.find(params[:id])
-    if item.user_id == current_user.id
-      item.update(item_params)
+    @item = Item.find(params[:id])
+    # if @item.user_id == current_user.id
+      @item.update(item_params)
       redirect_to items_path
-    end
+    # end
   end
 
   def search
