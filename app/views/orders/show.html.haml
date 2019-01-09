@@ -52,4 +52,5 @@
       .order-item__pay-btn__box
         = @cancel_message
 
-  = render 'pay'
+  - if (@order.status == "stage0") && (@order.user == current_user)
+    = render 'pay'

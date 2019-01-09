@@ -16,7 +16,7 @@
           %div
             出品数
             %span.bold
-              0
+              = @count
     %section.mypage-tab-container-notification-todo
       %ul.mypage-tabs
         %li.mypage-tabs-active.active
@@ -58,6 +58,7 @@
       .tab-content
         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.move-show
           = render @orders
+        = paginate(@orders)
         - if @orders.length == 0
           %li.mypage-item-not-found.bold
             取引中の商品がありません
