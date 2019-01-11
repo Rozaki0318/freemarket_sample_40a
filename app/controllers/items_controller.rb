@@ -41,6 +41,7 @@ class ItemsController < ApplicationController
     end
 
     @items = Item.where(user_id: @item.user_id).where.not(id: @item.id).limit(6) # 同じ出品者の商品
+    @same_brand_items = Item.where(brand_id:@item.brand_id).where.not(id: @item.id).limit(6) # 同じブランドの商品
     @comments = @item.comments
     @comment = Comment.new
   end

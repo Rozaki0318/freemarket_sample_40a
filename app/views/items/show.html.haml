@@ -166,8 +166,6 @@
   -if @item.brand.present?
     %h2.item-box-head
       = link_to "#{@item.brand.name}のその他の商品", items_path, class: "another-brand-items"
-    .item-box-head__content
-      - 5.times do
-        %section.show-items
-          -# = render 'item'
+      .item-box-head__content
+        = render partial: "item", collection: @same_brand_items
 
