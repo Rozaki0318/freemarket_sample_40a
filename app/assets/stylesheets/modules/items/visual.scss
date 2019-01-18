@@ -37,11 +37,11 @@
       background-position: center;
     }
     .box3 {
-      @include visual-size("http://www.mercari.com/jp/assets/img/common/jp/top/top-banner-kusanagi.jpg");
+      @include visual-size("http://www.mercari.com/jp/assets/img/common/jp/top/banner-bokurano-heisei-entertainment.png");
       background-position: center;
     }
     .box4 {
-      @include visual-size("http://www.mercari.com/jp/assets/img/common/jp/top/top-banner-welcome.png");
+      @include visual-size("http://www.mercari.com/jp/assets/img/common/jp/top/banner-featured-hobby.jpg");
       background-size: cover;
       background-position: center center;
     }
