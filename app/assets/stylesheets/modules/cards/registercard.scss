@@ -46,14 +46,14 @@
         }
         .fa-angle-down {
           position: relative;
-          top: 12px;
+          top: opx;
           left: -20px;
           z-index: 1;
           color: gray;
         }
         .mozi {
           position: relative;
-          top: 13px;
+          top: 5px;
           left: -10px;
         }
     }
@@ -146,3 +146,13 @@
   }
 }
 
+.btn-red-card {
+  background-color: $red;
+  color: #fff;
+  width: 350px;
+  line-height: 50px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  margin: 30px 0;
+}
