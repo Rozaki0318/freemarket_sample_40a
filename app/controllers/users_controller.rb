@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   def show
     user = User.find(show_params[:id])
     @nickname = user.nickname
-    @orders = user.orders.order("created_at DESC").page(params[:page]).per(10)
+    @orders = user.orders.order("created_at DESC").page(params[:page]).per(8)
     @count = user.orders.length
   end
 

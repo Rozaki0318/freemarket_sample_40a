@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   protect_from_forgery except: :pay
 
   def index # 買手から見たオーダーリスト
-    @orders = current_user.orders.order("created_at DESC").page(params[:page]).per(10)
+    @orders = current_user.orders.order("created_at DESC").page(params[:page]).per(8)
   end
 
   def new
@@ -63,7 +63,7 @@ class OrdersController < ApplicationController
 
   def sale # 売手から見たオーダーリスト
     items_ids = current_user.items.pluck(:id)
-    @orders = Order.where(item_id: items_ids).order("created_at DESC").page(params[:page]).per(10)
+    @orders = Order.where(item_id: items_ids).order("created_at DESC").page(params[:page]).per(8)
   end
 
   def pay
