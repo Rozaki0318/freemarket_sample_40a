@@ -389,6 +389,15 @@
         float: left;
         position: relative;
         margin-bottom: 20px;
+        &-name {
+          height: 2.5em;
+        }
+        &-price {
+          margin: 4px auto;
+        }
+        &-tax {
+          bottom: 10px;
+        }
       }
     }
 }
