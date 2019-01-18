@@ -9,8 +9,12 @@ class CardsController < ApplicationController
   end
 
   def create
-    @card = CreditCard.create(card_params)
-    redirect_to user_cards_path(current_user.id)
+    @card = CreditCard.new(card_params)
+    if @card.save
+      redirect_to user_cards_path(current_user.id)
+    else
+      render action: :new
+    end
   end
 
   def destroy
