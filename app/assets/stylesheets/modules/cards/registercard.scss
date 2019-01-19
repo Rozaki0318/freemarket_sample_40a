@@ -44,16 +44,16 @@
           -moz-appearance: none;
           appearance: none;
         }
-        .fa-angle-down {
+        .fa-chevron-down {
           position: relative;
-          top: 0px;
-          left: -20px;
+          top: 10px;
+          left: -27px;
           z-index: 1;
           color: gray;
         }
         .mozi {
           position: relative;
-          top: 5px;
+          top: 15px;
           left: -10px;
         }
     }
@@ -155,4 +155,15 @@
   cursor: pointer;
   text-align: center;
   margin: 30px 0;
+}
+
+#credit_card_expiration_month{
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
+}
+#credit_card_expriration_year{
+  height: 48px;
+  padding: 0 16px;
+  font-size: 16px;
 }
