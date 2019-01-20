@@ -7,7 +7,7 @@ class OrdersController < ApplicationController
   protect_from_forgery except: :pay
 
   def index # 買手から見たオーダーリスト
-    @orders = current_user.orders.order("created_at DESC").page(params[:page]).per(8)
+    @orders = current_user.orders.order("created_at DESC").page(params[:page]).per(10)
   end
 
   def new
@@ -63,7 +63,7 @@ class OrdersController < ApplicationController
 
   def sale # 売手から見たオーダーリスト
     items_ids = current_user.items.pluck(:id)
-    @orders = Order.where(item_id: items_ids).order("created_at DESC").page(params[:page]).per(8)
+    @orders = Order.where(item_id: items_ids).order("created_at DESC").page(params[:page]).per(10)
   end
 
   def pay
@@ -120,7 +120,8 @@ class OrdersController < ApplicationController
   def buyer_todo
     case @order.status
     when "stage0"
-      @paybtn = "登録しているカードで支払う"
+      @message = "カードを登録してください" unless current_user.credit_card
+      @paybtn = "登録しているカードで支払う" if current_user.credit_card
       @cancel_message = "キャンセルする"
     when "stage1"
       @message = "商品の発送をお待ちください"

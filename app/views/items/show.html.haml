@@ -88,10 +88,9 @@
       売り切れました
   -else
     - if user_signed_in?
-      -unless current_user.id == @item.user_id
-        .item-buy-btn
-          = link_to new_item_order_path(params[:id]), class: "buy-red" do
-            購入画面に進む
+      .item-buy-btn
+        = link_to new_item_order_path(params[:id]), class: "buy-red" do
+          購入画面に進む
 
   .item-description
     %p.item-description-inner
@@ -127,7 +126,10 @@
           .not-comment#not-click
             売り切れのためコメントできません
         -else
-          = f.submit "コメントする", class: 'comment-btn'
+          - if user_signed_in?
+            = f.submit "コメントする", class: 'comment-btn'
+          - else
+            .comment-btn.not-push ログインしてください
 
 
 //ネクストリンク

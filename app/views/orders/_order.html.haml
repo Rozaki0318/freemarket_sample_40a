@@ -9,7 +9,14 @@
           = order.item.name
       - else
         .order-message
-          「#{order.item.name}」を購入しました。取引中です。
-      .order-status
-        取引中
+          - if order.status == "stage4"
+            「#{order.item.name}」を購入しました。取引は終了しています。
+          - else
+            「#{order.item.name}」を購入しました。取引中です。
+      - if order.status == "stage4"
+        .order-status-finished
+          取引終了
+      - else
+        .order-status
+          取引中
     = fa_icon 'angle-right', class: "order-icon"

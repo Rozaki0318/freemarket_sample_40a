@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    gon.address = current_user.address.present?
+    gon.address = current_user.address.present? if user_signed_in?
     @ids = Order.pluck(:item_id)
     @item = Item.find(params[:id])
     @images = Image.where(item_id: @item.id)
@@ -44,23 +44,36 @@ class ItemsController < ApplicationController
     @same_brand_items = Item.where(brand_id:@item.brand_id).where.not(id: @item.id).limit(6) # 同じブランドの商品
     @comments = @item.comments
     @comment = Comment.new
+
+    redirect_to option_item_path if @item.user == current_user
   end
 
   def option
     @item = Item.find(params[:id])
+    @images = Image.where(item_id: @item.id)
     @comments = @item.comments
     @comment = Comment.new
+    @small_category = @item.category
+
+    if @item.category.depth.include?("/")
+      @small_category_depth = @item.category.depth.split("/").last.to_i
+      @medium_category = Category.find(@small_category_depth)
+      @large_category = Category.find(@medium_category.depth)
+    else
+      @medium_category = Category.find(@item.category_id) #中カテどまりの商品
+      @large_category = Category.find(@medium_category.depth)
+    end
   end
 
   def destroy
     @item = Item.find(params[:id])
-    # if @item.user_id == current_user.id
+    if @item.user_id == current_user.id
       if @item.destroy
         redirect_to items_path
       else
         redirect_to  option_item(@item)
       end
-    # end
+    end
   end
 
   def edit
@@ -74,13 +87,13 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    # if @item.user_id == current_user.id
+    if @item.user_id == current_user.id
       if @item.update(item_params)
         redirect_to items_path
       else
         redirect_to edit_item_path(@item)
       end
-    # end
+    end
   end
 
   def search

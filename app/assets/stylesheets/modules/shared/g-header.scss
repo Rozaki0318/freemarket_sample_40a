@@ -126,6 +126,10 @@
               @include mypage-btn();
               display: flex;
               align-items: center;
+              &:hover {
+                font-weight: bold;
+                color: $blue;
+              }
               .my-avatar {
                 box-sizing: border-box;
                 padding-bottom: 2px;
@@ -143,9 +147,19 @@
             }
             &-notice {
               @include mypage-btn();
+              cursor: progress;
+              &:hover {
+                font-weight: bold;
+                color: $blue;
+              }
             }
             &-todo {
               @include mypage-btn();
+              cursor: progress;
+              &:hover {
+                font-weight: bold;
+                color: $blue;
+              }
             }
             .far {
               font-weight: 900;
@@ -156,3 +170,50 @@
     }
   }
 }
+.bread-crumbs {
+  position: relative;
+  border-top: 1px solid #eee;
+  background-color: $white;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  ul {
+    width: 1020px;
+    margin: 0 auto;
+    list-style: none;
+    padding: 16px 0 17px;
+    li {
+      text-overflow: ellipsis;
+      display: inline-block;
+      font-size: 14px;
+      .parent {
+        @include link($black);
+      }
+      .fa-angle-right {
+        margin: 0 8px;
+        font-size: 9px;
+        color: #888;
+      }
+    }
+    li:last-child {
+      font-weight: 600;
+      text-overflow: ellipsis;
+    }
+  }
+}
+
+.breadcrumbs {
+  height: 50px;
+  line-height: 50px;
+  padding-left: calc((100% - 1020px)/2);
+  font-size: 14px;
+  position: relative;
+  border-top: 1px solid #eee;
+  background-color: $white;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  a {
+    @include link($black);
+  }
+  .current {
+    font-weight: bold;
+  }
+}
+

@@ -1,15 +1,9 @@
-%nav.bread-crumbs
-  %ul
-    %li
-      = link_to items_path, itemprop: 'url', class: "parent" do
-        %span{itemprop: :"title"} メルカリ
-      %i.fas.fa-angle-right
-    %li.item-name
-      %span{itemprop: :"title"} うさぎ
+- breadcrumb :item_name, @item
 
 //商品情報
 %section.item-show-container
-  %h1.item-name うさぎ
+  %h1.item-name
+    = @item.name
   .item-main-content
     .item-photo
       .owl-carousel
@@ -17,84 +11,71 @@
           .owl-stage
             .owl-item.active
               .owl-inner
-                = image_tag "img.jpeg"
-            .owl-item
-              .owl-inner
-                = image_tag "https://i1.wp.com/innublog.com/wp-content/uploads/2018/03/2018y02m17d_125508541.jpg?resize=396%2C266&ssl=1"
-            .owl-item
-              .owl-inner
-                = image_tag "https://pbs.twimg.com/profile_images/3406268893/54b7e1f981b7df7c817af48d1b96ad5e_400x400.jpeg"
-            .owl-item
-              .owl-inner
-                = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vulpes_vulpes_laying_in_snow.jpg/250px-Vulpes_vulpes_laying_in_snow.jpg"
+                - @images.each do |image|
+                  =image_tag (image.image.url)
         .owl-dots
-          .owl-dot
-            = image_tag "img.jpeg", alt: "sample", class: "thumbnail-s"
-          .owl-dot
-            = image_tag "https://i1.wp.com/innublog.com/wp-content/uploads/2018/03/2018y02m17d_125508541.jpg?resize=396%2C266&ssl=1", alt: "sample", class: "thumbnail-s"
-          .owl-dot
-            = image_tag "https://pbs.twimg.com/profile_images/3406268893/54b7e1f981b7df7c817af48d1b96ad5e_400x400.jpeg", alt: "sample", class: "thumbnail-s"
-          .owl-dot
-            = image_tag "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Vulpes_vulpes_laying_in_snow.jpg/250px-Vulpes_vulpes_laying_in_snow.jpg", alt: "sample", class: "thumbnail-s"
-
+          = render partial: "image", collection: @images
 
     %table.item-detail-table
       %tbody
         %tr
           %th 出品者
           %td
-            = link_to items_path, class: "seller-name" do
-              国木田独歩
+            = link_to"#{@item.user.nickname}", items_path, class: "seller-name"
         %tr
           %th カテゴリー
           %td
             = link_to items_path, class: "top" do
-              うさぎ
+              = @large_category.name
+
             = link_to items_path, class: "middle" do
               %i.fas.fa-angle-right
-              かわいい
-            = link_to items_path, class: "bottom" do
-              %i.fas.fa-angle-right
-              飼いたい
+              = @medium_category.name
+
+            -if @small_category_depth.present?
+              = link_to items_path, class: "bottom" do
+                %i.fas.fa-angle-right
+                = @small_category.name
+
         %tr
           %th ブランド
           %td
-            = link_to "うさぎ", items_path, class: "brand"
+            = link_to "#{@item.brand.name}", items_path, class: "brand" if @item.brand.present?
         %tr
           %th 商品のサイズ
-          %td 27cm
+          %td
+            = @item.size.name if @item.size.present?
         %tr
           %th 商品の状態
-          %td 新品、未使用
+          %td
+            = @item.condition_i18n
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          %td
+            = @item.shipping_fee_i18n
         %tr
           %th 配送の方法
-          %td 普通郵便(定形、定形外)
+          %td
+            = @item.shipping_way_i18n
         %tr
           %th 配送元地域
           %td
-            = link_to "愛知県", items_path, class: "prefecture"
+            = link_to "#{@item.shipping_from_i18n}", items_path, class: "prefecture"
         %tr
           %th 発送日の目安
-          %td 4~7日で発送
+          %td
+            = @item.shipping_date_i18n
 
   .item-price-box
-    %span.price ￥14,500
+    %span.price
+      = "¥" + number_with_delimiter("#{@item.price}")
     %span.tax （税込）
-    %span.shipping-fee 送料込み
+    %span.shipping-fee
+      = @item.shipping_fee_i18n
 
   .item-description
     %p.item-description-inner
-      とてもかわいいうさぎです。
-      どれくらいかわいいかというと、もう鬼可愛いです。
-      ほんとは手放したくないくらいに。
-
-      しかし私はギャンブルで有り金全てを擦ってしまい、かわいいかわいいうさぎ様に十分なえさを与えることができません。
-
-      ですので、どうか、どうか！
-      こちらのうさぎ様を幸せにしてやってください。お願いします！
+      = @item.description
 
 //出品オプション
 .listing-item-change-box
@@ -104,7 +85,7 @@
   = link_to "この商品を削除する", "", id: "modal-open",class: "btn-gray btn-default"
 
 //コメントゾーン
-.item-detail-message
+.item-detail-message.option-last
   .message-container
     //コメント一覧
     .message-content
@@ -130,10 +111,3 @@
     .modal-box
       .modal-btn.modal-btn-cancel キャンセル
       = link_to "削除する", "/items/#{@item.id}", id: "modal-open",class: "modal-btn modal-btn-submit", method: :delete
-
-
-
-
-
-
-
