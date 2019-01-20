@@ -1,4 +1,12 @@
-- breadcrumb :item_name, @order.item
+%nav.bread-crumbs
+  %ul
+    %li
+      = link_to items_path, itemprop: 'url', class: "parent" do
+        %span{itemprop: :"title"} メルカリ
+      %i.fas.fa-angle-right
+    %li
+      %span{itemprop: :"title"}
+        = @order.item.name
 
 .order-main-container
   .order-main-container__menu
