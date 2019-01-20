@@ -32,6 +32,16 @@
         border-radius: 2px;
         display: inline-block;
       }
+      .order-status-finished {
+        font-size: 12px;
+        font-weight: bold;
+        background-color: $red;
+        color: $white;
+        padding: 5px 6px;
+        margin-top: 8px;
+        border-radius: 2px;
+        display: inline-block;
+      }
     }
     .order-icon {
       font-size: 20px;

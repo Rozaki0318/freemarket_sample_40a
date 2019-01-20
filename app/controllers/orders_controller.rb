@@ -120,7 +120,8 @@ class OrdersController < ApplicationController
   def buyer_todo
     case @order.status
     when "stage0"
-      @paybtn = "登録しているカードで支払う"
+      @message = "カードを登録してください" unless current_user.credit_card
+      @paybtn = "登録しているカードで支払う" if current_user.credit_card
       @cancel_message = "キャンセルする"
     when "stage1"
       @message = "商品の発送をお待ちください"

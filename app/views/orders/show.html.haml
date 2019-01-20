@@ -1,11 +1,4 @@
-%nav.bread-crumbs
-  %ul
-    %li
-      = link_to items_path, itemprop: 'url', class: "parent" do
-        %span{itemprop: :"title"} メルカリ
-      %i.fas.fa-angle-right
-    %li.item-name
-      %span{itemprop: :"title"} うさぎ
+- breadcrumb :item_name, @order.item
 
 .pay-error
   = h(flash[:notice])
@@ -52,5 +45,5 @@
       .order-item__pay-btn__box
         = @cancel_message
 
-  - if (@order.status == "stage0") && (@order.user == current_user)
+  - if (@order.status == "stage0") && (@order.user == current_user) && (current_user.credit_card)
     = render 'pay'

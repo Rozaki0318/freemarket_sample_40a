@@ -26,11 +26,22 @@
             =link_to "過去の取引","#mypage-tab-transaction-old",data: { toggle: "tab"}
       .tab-content
         %ul#mypage-tab-transaction-now.mypage-item-list.tab-pane.move-show
-          = render @orders
-        = paginate(@orders)
-        - if @orders.length == 0
-          %li.mypage-item-not-found.bold
-            取引中の商品がありません
+          = render @orders.where(status: ["stage0","stage1","stage2","stage3"])
+
+          .pagenate
+            = paginate(@orders.where(status: ["stage0","stage1","stage2","stage3"]))
+
+          - if @orders.where(status: ["stage0","stage1","stage2","stage3"]).length == 0
+            %li.mypage-item-not-found.bold
+              取引中の商品がありません
+
         %ul#mypage-tab-transaction-old.mypage-item-list.tab-pane
-          %li.mypage-item-not-found.bold
-            過去に取引した商品がありません
+          = render @orders.where(status: "stage4")
+
+          .pagenate
+            = paginate(@orders.where(status: "stage4"))
+
+          - if @orders.where(status: "stage4").length == 0
+            %li.mypage-item-not-found.bold
+              過去に取引した商品がありません
+
